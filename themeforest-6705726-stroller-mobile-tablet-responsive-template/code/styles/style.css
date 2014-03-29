@@ -822,7 +822,23 @@ body {
 	margin-bottom:2px;
 }
 
+.home-drugs{
+	background-image:url(../images/icons/misc/chemical.png);
+}
 
+.home-bandaid{
+	background-image:url(../images/icons/misc/bandaid.png);
+}
 
+.home-faqs{
+	background-image:url(../images/icons/display/listimage.png);
+}
 
+.home-info-about{
+	background-image:url(../images/icons/misc/infoabout.png);
+}
+
+.home-prevention {
+	background-image:url(../images/icons/misc/books2.png);
+}
 

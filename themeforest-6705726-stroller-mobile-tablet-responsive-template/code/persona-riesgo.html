@@ -27,9 +27,13 @@
     {
         margin-bottom: 10px;
     }
-    .gallery-images 
+    .gallery-images, #btnAyuda  
     {
         display: none;
+    }
+    .button-icon 
+    {
+        padding-left: 13px;
     }
 </style>
 
@@ -62,10 +66,10 @@
     <div id="sidebar" class="page-sidebar">
         <div class="page-sidebar-scroll">
             <div class="sidebar-shortcuts">
-                <a href="#" class="shortcut-call"></a>
+                <!--<a href="#" class="shortcut-call"></a>
                 <a href="#" class="shortcut-facebook"></a>
                 <a href="#" class="shortcut-twitter"></a>
-                <a href="#" class="shortcut-search"></a>
+                <a href="#" class="shortcut-search"></a>-->
                 <a href="#" class="shortcut-close"></a>
             </div>
             
@@ -80,58 +84,40 @@
                 <img src="images/misc/logo.png" height="52" alt="img">
             </div>
             
-            <div class="sidebar-breadcrumb">NAVIGATION</div>
+            <div class="sidebar-breadcrumb">NAVEGACIÓN</div>
                 
             <div class="navigation-item">
-                <a href="index.html" class="nav-item home-icon">Homepage<em class="unselected-item"></em></a>
+                <a href="index.html" class="nav-item home-icon">Inicio<em class="unselected-item"></em></a>
             </div>    
             <div class="sidebar-decoration"></div>
             <div class="navigation-item">
-                <a href="#" class="nav-item features-icon submenu-deploy">Features<em></em></a>
-                <div class="nav-submenu active-submenu">
-                    <a href="introduction.html">  Introduction <em class="unselected-item"></em></a>
-                    <a href="typography.html">  Typography   <em class="unselected-item"></em></a>
-                    <a href="jquery.html">      jQuery       <em class="selected-item"></em></a>
-                </div>
-            </div>    
+                <a href="listaDrogas.html" class="nav-item home-drugs">Conozca las Drogas<em class="unselected-item"></em></a>
+            </div>
             <div class="sidebar-decoration"></div>
             <div class="navigation-item">
-                <a href="#" class="nav-item gallery-icon submenu-deploy">Gallery<em class="dropdown-item"></em></a>
+                <a href="#" class="nav-item home-bandaid submenu-deploy">Acompañamiento<em class="dropdown-item"></em></a>
                 <div class="nav-submenu">
-                    <a href="tile-gallery.html">     Tile Gallery              <em class="unselected-item"></em></a>
-                    <a href="tile-folio.html">     Tile Portfolio            <em class="unselected-item"></em></a>
-                    <a href="one-folio.html">       One Column Portfolio      <em class="unselected-item"></em></a>
-                    <a href="two-folio.html">       Two Column Portfolio      <em class="unselected-item"></em></a>
-                    <a href="three-folio.html">   Three Column Portfolio    <em class="unselected-item"></em></a>
-                    <a href="thumb-gallery.html">   Thumbnail Gallery         <em class="unselected-item"></em></a>
+                    <a href="persona-riesgo.html">     Diagnóstico              <em class="selected-item"></em></a>
+                    <a href="diagnostico.html">     Estoy en Riesgo            <em class="unselected-item"></em></a>
                 </div>
             </div>    
             <div class="sidebar-decoration"></div>          
-            <div class="navigation-item">
-                <a href="contact.html" class="nav-item home-icon">Contact<em class="unselected-item"></em></a>
-            </div>  
+           <div class="navigation-item">
+                <a href="prevencion.html" class="nav-item home-prevention">Campañas de Prevención<em class="unselected-item"></em></a>
+            </div>
+           <div class="navigation-item">
+                <a href="faqs.html" class="nav-item home-faqs">Preguntas Frecuentes<em class="unselected-item"></em></a>
+            </div>
             
-            <div class="sidebar-breadcrumb">SOCIAL STUFF</div>
+            <div class="sidebar-breadcrumb">INFORMACIÓN</div>
             
             <div class="navigation-item">
-                <a href="https://www.facebook.com/enabled.labs" class="nav-item facebook-icon">Facebook<em class="link-item"></em></a>
+                <a href="acerca.html" class="nav-item home-info-about">Acerca de<em class="unselected-item"></em></a>
             </div>    
-
-            <div class="sidebar-decoration"></div>
+ 
+            <div class="sidebar-breadcrumb">Actualizaciones</div>  
             
-            <div class="navigation-item">
-                <a href="https://twitter.com/iEnabled" class="nav-item twitter-icon">Twitter<em class="link-item"></em></a>
-            </div>  
-            
-            <div class="sidebar-decoration"></div>
-            
-            <div class="navigation-item">
-                <a href="#" class="nav-item google-icon">Google Plus<em class="link-item"></em></a>
-            </div> 
-            
-            <div class="sidebar-breadcrumb">PAGE UPDATES</div>  
-            
-            <div class="page-update">
+            <!--<div class="page-update">
                 <span class="update-icon"></span>
                 <a href="#" class="update-button info-update">
                     <strong>Information</strong>
@@ -140,22 +126,22 @@
                 <div class="page-update-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu ligula non nisl consequat eleifend ut in libero. Vivamus rhoncus vulputate.
                 </div>
-            </div>
+            </div>-->
             
             <div class="sidebar-decoration"></div>  
 
             <div class="page-update">
                 <span class="update-icon"></span>
                 <a href="#" class="update-button notification-update">
-                    <strong>Notification</strong>
-                    <em>Portfolio page updated</em>
+                    <strong>Notificación</strong>
+                    <em>Se ha agregado krokodil</em>
                 </a>
                 <div class="page-update-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu ligula non nisl consequat eleifend ut in libero. Vivamus rhoncus vulputate.
+                    Una nueva droga ha sido agregada al catálogo de datos
                 </div>
             </div>
             
-            <div class="sidebar-decoration"></div> 
+            <!--<div class="sidebar-decoration"></div>
             
             <div class="page-update">
                 <span class="update-icon"></span>
@@ -179,11 +165,11 @@
                 <div class="page-update-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu ligula non nisl consequat eleifend ut in libero. Vivamus rhoncus vulputate.
                 </div>
-            </div>
+            </div>!-->
             
             <div class="sidebar-decoration"></div>
             
-            <div class="sidebar-breadcrumb">COPYRIGHT 2014. ALL RIGHTS RESERVED!</div>
+            <div class="sidebar-breadcrumb">OCD 2014.</div>
          
         </div>         
     </div>
@@ -265,8 +251,15 @@
                                 <strong>Pueden desarrollar comportamiento agresivo, ansiedad, insomnia, paranoia </strong>
                             </div>
                         </div>
+                         
                     </div>
                     </div>  
+                    <br>
+                    <div class="container no-bottom" id="btnAyuda">
+                            <p class="center-text">
+                                <a href="contacto-ayuda.html" class="button-icon icon-creatwrite button-turqoise" onclick="consultarDiagnostico">Solicitar Ayuda</a>
+                            </p>
+                    </div>
                 <br>
             </div>
             <div class="decoration"></div>
@@ -288,7 +281,10 @@
     function cargarImagenes() 
     {
         $("#gallery-images").css("display", "block");
+        $("#btnAyuda").css("display", "block");
         $('html, body').animate({ scrollTop: $('#gallery-images').offset().top }, 'slow');
+        $('html, body').animate({ scrollTop: $('#btnAyuda').offset().top }, 'slow');
+      
     }
 </script>
 </body>
