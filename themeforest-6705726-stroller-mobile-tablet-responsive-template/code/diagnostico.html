@@ -38,8 +38,26 @@
         .icon-creatwrite {
             background-image: url(images/icons/misc/creatwrite.png);
         }
+
+        .icon-alert2 {
+            background-image: url(images/icons/misc/alert2.png);
+        }
+
+        .icon-book {
+            background-image: url(images/icons/misc/book.png);
+        }
+
+        .icon-maps {
+            background-image: url(images/icons/misc/maps.png);
+        }
     </style>
 
+    <script type="text/javascript">
+        function consultarDiagnostico() {
+            $('#div_diagnostico').show();
+            $('html, body').animate({ scrollTop: $('#div_diagnostico').offset().top }, 'slow');
+        }
+    </script>
 </head>
 <body>
 
@@ -229,74 +247,89 @@
                 </div>
                 <div class="container no-bottom">
                     <p class="center-text">
-                        <a href="#" class="button-icon icon-creatwrite button-turqoise" onclick="consultarDiagnostico">Obtener diagnóstico</a>
+                        <a href="#" class="button-icon icon-creatwrite button-turqoise" onclick="consultarDiagnostico()">Obtener diagnóstico</a>
                     </p>
                 </div>
-                <div class="container no-bottom">
-                    <h5>Las siguientes son algunas de las posibles drogas en las que se encuentra el tercero y su respectiva probabilidad</h5>
-                </div>
-                <div class="container">
-                    <div class="toggle-2">
-                        <a href="#" class="deploy-toggle-2">
-                            <div class="chart chart-round">
-                                <strong>Éxtasis</strong>
-                                <em>90%</em>
-                                <div class="chart-background">
-                                    <div class="red-chart p90"></div>
+                <div id="div_diagnostico" style="display: none;">
+                    <div class="container no-bottom">
+                        <h5>Las siguientes son algunas de las posibles drogas en las que se encuentra el tercero y su respectiva probabilidad</h5>
+                    </div>
+                    <div class="container">
+                        <div class="toggle-2">
+                            <a href="#" class="deploy-toggle-2">
+                                <div class="chart chart-round">
+                                    <strong>Éxtasis</strong>
+                                    <em>90%</em>
+                                    <div class="chart-background">
+                                        <div class="red-chart p90"></div>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                        <div class="toggle-content">
-                            <p>
+                            </a>
+                            <div class="toggle-content">
                                 <div class="one-half-responsive">
                                     <p class="thumb-left no-bottom">
-                                        <img src="images/general-nature/1s.jpg" alt="img">
-                                        <strong>Responsive Template</strong>
+                                        <img src="images/general-nature/extasis.jpg" alt="img">
+                                        <div class="container">
+                                            <a href="#" class="button-icon icon-book button-turqoise">Ver más</a>
+                                            <a href="#" class="button-icon icon-alert2 button-turqoise">Obtener ayuda</a>
+                                        </div>
                                         <em><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </em>
                                     </p>
                                     <div class="thumb-clear"></div>
                                 </div>
-                            </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <div class="toggle-2">
-                        <a href="#" class="deploy-toggle-2">
-                            <div class="chart chart-round">
-                                <strong>Clorhidrato de cocaína</strong>
-                                <em>50%</em>
-                                <div class="chart-background">
-                                    <div class="yellow-chart p50"></div>
+                    <div class="container">
+                        <div class="toggle-2">
+                            <a href="#" class="deploy-toggle-2">
+                                <div class="chart chart-round">
+                                    <strong>Clorhidrato de cocaína</strong>
+                                    <em>50%</em>
+                                    <div class="chart-background">
+                                        <div class="yellow-chart p50"></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="toggle-content">
+                                <div class="one-half-responsive">
+                                    <p class="thumb-left no-bottom">
+                                        <img src="images/general-nature/1s.jpg" alt="img">
+                                        <div class="container">
+                                            <a href="#" class="button-icon icon-book button-turqoise">Ver más</a>
+                                            <a href="#" class="button-icon icon-alert2 button-turqoise">Obtener ayuda</a>
+                                        </div>
+                                        <em><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </em>
+                                    </p>
+                                    <div class="thumb-clear"></div>
                                 </div>
                             </div>
-                        </a>
-                        <div class="toggle-content">
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                when an unknown printer took a galley of type and scrambled specimen book.
-                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <div class="toggle-2">
-                        <a href="#" class="deploy-toggle-2">
-                            <div class="chart chart-round">
-                                <strong>Metanfetamina</strong>
-                                <em>20%</em>
-                                <div class="chart-background">
-                                    <div class="blue-chart p20"></div>
+                    <div class="container">
+                        <div class="toggle-2">
+                            <a href="#" class="deploy-toggle-2">
+                                <div class="chart chart-round">
+                                    <strong>Metanfetamina</strong>
+                                    <em>20%</em>
+                                    <div class="chart-background">
+                                        <div class="blue-chart p20"></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="toggle-content">
+                                <div class="one-half-responsive">
+                                    <p class="thumb-left no-bottom">
+                                        <img src="images/general-nature/1s.jpg" alt="img">
+                                        <div class="container">
+                                            <a href="#" class="button-icon icon-book button-turqoise">Ver más</a>
+                                            <a href="#" class="button-icon icon-alert2 button-turqoise">Obtener ayuda</a>
+                                        </div>
+                                        <em><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </em>
+                                    </p>
+                                    <div class="thumb-clear"></div>
                                 </div>
                             </div>
-                        </a>
-                        <div class="toggle-content">
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                when an unknown printer took a galley of type and scrambled specimen book.
-                            </p>
                         </div>
                     </div>
                 </div>
