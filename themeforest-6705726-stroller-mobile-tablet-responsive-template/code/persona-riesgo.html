@@ -22,6 +22,16 @@
 <link href="styles/owl.theme.css"       rel="stylesheet" type="text/css">
 <link href="styles/swipebox.css"         rel="stylesheet" type="text/css">
 <link href="styles/colorbox.css"         rel="stylesheet" type="text/css">
+<style>
+    .one-half-responsive 
+    {
+        margin-bottom: 10px;
+    }
+    .gallery-images 
+    {
+        display: none;
+    }
+</style>
 
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/jqueryui.js"></script>
@@ -189,6 +199,7 @@
         
         <div class="page-header-clear"></div>
         <div class="content"> 
+            <br>
             <div class="container no-bottom" style="text-align:center;">
                 <h3>ESTOY EN RIESGO</h3>
             </div>
@@ -214,13 +225,50 @@
                 <div class="container half-bottom">
                     <div class="one-half">
                         <a href="#" class="checkbox checkbox-three">extasis</a>
-                        <a href="#" class="checkbox checkbox-three">Anfetamina/Metanfetamina</a>
+                        <a href="#" class="checkbox checkbox-three">Metanfetamina</a>
                         <a href="#" class="checkbox checkbox-three">Clorhidrato de cocaina</a>
                         <a href="#" class="checkbox checkbox-three">Ketamina</a>
                     </div>
                 </div>  
+                 <a href="#" onclick="cargarImagenes()" class="button button-blue">Consultar</a>
             </div>
-            
+            <br>
+           
+            <div class="gallery-images" id="gallery-images">
+            <div class="decoration"></div>   
+                <br>    
+                    <a href="#" class="next-quote"></a>
+                    <a href="#" class="prev-quote"></a>
+                    <div class="quote-slider" data-snap-ignore="true">
+                         <div>
+                            <div class="quote-item">
+                                <img src="images/drugs/meta3.png" alt="img">
+                                <h4>Al consumirla</h4>
+                                <em>!Es una droga estimulante!</em>
+                                <strong>Aún en pequenas cantidades tiene severos efectos en el cerebro y sistema nervioso</strong>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="quote-item">
+                                <img src="images/drugs/meta1.png" alt="img">
+                                <h4>2 años de consumo</h4>
+                                <em>!Efectos tóxicos en el cerebro!</em>
+                                <strong>Altas dosis elevan la temperatura corporal a niveles letales, puede causar convulsiones!</strong>
+                                
+                            </div>
+                        </div>
+                        <div>
+                            <div class="quote-item">
+                                <img src="images/drugs/meta2.png" alt="img">
+                                <h4>4 años de consumo</h4>
+                                <em>!Altamente adictiva!</em>
+                                <strong>Pueden desarrollar comportamiento agresivo, ansiedad, insomnia, paranoia </strong>
+                            </div>
+                        </div>
+                    </div>
+                    </div>  
+                <br>
+            </div>
             <div class="decoration"></div>
             <div class="container">
                 <div class="footer-socials">
@@ -228,14 +276,20 @@
                     <a href="#" class="goup-footer"></a>
                     <a href="#" class="twitter-footer"></a>
                 </div>
-                <p class="copyright uppercase center-text no-bottom">Copyright 2013<br> All rights reserved</p>        
+                <p class="copyright uppercase center-text no-bottom">OCD 2013<br> Todos los derechos reservados</p>        
             </div>
         </div>  
               
         </div>       
     </div>  
 </div>
-
+<script type="text/javascript">
+    
+    function cargarImagenes() 
+    {
+        $("#gallery-images").css("display", "block");
+    }
+</script>
 </body>
 </html>
 
