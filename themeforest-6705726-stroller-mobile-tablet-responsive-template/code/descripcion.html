@@ -41,7 +41,7 @@
         <div id="preloader">
         	<div id="status">
             	<p class="center-text">
-        			Cargando contenido...
+                    Cargando contenido...
                     <em>La carga depende de su conexión a internet</em>
                 </p>
             </div>
@@ -192,84 +192,68 @@
                 	<div class="decoration"></div> 
                     
                     <div class="container no-bottom" style="text-align:center;">
-                    	<h3>CONOZCA LAS DROGAS</h3>
+                    	<h3>DEFINICIÓN Y CARACTERÍSTICAS DEL ÉXTASIS</h3>
                     </div>
 
         			<div class="decoration"></div>
 
                     <div class="container no-bottom">
-                        
                             <div class="big-notification blue-notification">
                                 <h4 class="uppercase">AYUDA</h4>
                                 <a href="#" class="close-big-notification">x</a>
-                                <p>En este módulo se encuentra un listado de drogas con las características físicas y químicas, además de los efectos y como reconocer cada una de estas. </p>
+                                <p>A continuación se encuentran unos conceptos generales y técnicos acerca de la droga seleccionada que pueden ser de su interés. </p>
                             </div>  
-                        
                     </div> 
-
-                	
-                   
-                           
-                    <div class="container no-bottom">
-                    	<h4> Lista de drogas</h4>
-                    </div> 
-                	
-                    
-                	<div id="lista_Drogas">
-                        
-                        <div class="container">
-                            <div class="toggle-2">
-                                <a href="#" class="deploy-toggle-2">ÉXTASIS</a>
-                                
-                                <div class="toggle-content">
-                                    <p>
-                                        <strong>Clasificación: </strong> Sintética
-                                        <div class="one-half-responsive ">
-                                            
-                                            <div class="submenu-navigation">
-                                                <div class="submenu-nav-items" style="overflow: hidden; display: block;">
-                                                    <a href="descripcion.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Definición y características</li></ul></a>
-                                                    <a href="efectos.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Efectos conocidos</li></ul></a>
-                                                    <a href="reconozca.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Aprenda a reconocerla</li></ul></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="one-half-responsive last-column" style="text-align:center;">
-                                            <div class="one-third">
-                                               <p></p>
-                                            </div>
-                                            <div class="one-third" style="margin-right:0px;">
-                                                     <p class="thumb-left no-bottom" style="padding:0px;">
-                                                    <img src="images/drugs/extasis.jpg" alt="img" style="margin-right:0px; margin-top:5px;">
-                                                </p>
-                                            </div>
-                                            <div class="one-third last-column">
-                                                
-                                            </div>
-                                           
-                                        </div>
-                                        
-                                    </p>
-                                </div>
+                    <div class="container">
+                        <div class="toggle-3">
+                            <a href="#" class="deploy-toggle-3">Definición<em><strong></strong></em></a>
+                            <div class="toggle-content">
+                                <p>
+                                    Nombre dado a la sustancia denominada químicamente como metilendioximetanfetamina cuya abreviatura es MDMA. Tambien se consideran sustancias tipo éxtasis la metilendioxianfetamina (MDA) y metilendioxietilanfetamina (MDEA).
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="decoration"></div>
-                	<div class="container">
-                        <div class="footer-socials">
-                            <a href="#" class="facebook-footer"></a>
-                            <a href="#" class="goup-footer"></a>
-                            <a href="#" class="twitter-footer"></a>
+                    <div class="container">
+                        <div class="toggle-3">
+                            <a href="#" class="deploy-toggle-3">Características<em><strong></strong></em></a>
+                            <div class="toggle-content">
+                                <p>
+                                    El éxtasis se comercializa en forma de pastillas comprimidas y cápsulas de diferentes colores y diseños; también se presenta al público en forma de cristales que podr¡an tener variados grados de pureza hasta el grado de llegar a ser totalmente falso.
+                                </p>
+                            </div>
                         </div>
-                        <p class="copyright uppercase center-text no-bottom">Copyright 2013<br> Todos los derechos reservados</p>        
-        			</div>
+                    </div>
+                    <div class="container">
+                        <div class="toggle-3">
+                            <a href="#" class="deploy-toggle-3">Efectos físicos agudos<em><strong></strong></em></a>
+                            <div class="toggle-content">
+                                <p>
+                                    Sobrecalentamiento o ataque de calor, se asocia con el s¡ndrome de la serotonina y otras complicaciones incluyendo rabdomiolisis, coagulaci¢n anormal de la sangre (coagulaci¢n intravascular diseminada), insuficiencia renal e insuficiencia hepótica. Inflamación cerebral (edema cerebral) causada por los bajos niveles de sodio (hiponatremia) secundaria a intoxicación por agua.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="toggle-3">
+                            <a href="#" class="deploy-toggle-3">Via de administración<em><strong></strong></em></a>
+                            <div class="toggle-content">
+                                <p>
+                                    Principalmente por via oral
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
         		</div>  
-                      
-                </div>       
             </div>  
         </div>
         <script type="text-javascript">
         function cargar_listaDrogas() {
+                    $('#div_cargando').show();
+                    $('#filtro').show();
+                    $("#combo_categoria>option").remove();
                     var texto = "";
                     var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/PNUD/uarivsoyvictima?$format=json";
                     $.ajax({
