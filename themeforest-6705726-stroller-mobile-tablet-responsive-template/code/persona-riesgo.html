@@ -288,6 +288,7 @@
     function cargarImagenes() 
     {
         $("#gallery-images").css("display", "block");
+        $('html, body').animate({ scrollTop: $('#gallery-images').offset().top }, 'slow');
     }
 </script>
 </body>
