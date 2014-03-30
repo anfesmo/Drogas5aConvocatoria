@@ -246,7 +246,10 @@
 
             function mostrarPista(num) {
                 if (num == 1) {
-                    alert(droga);
+                    if (droga != undefined)
+                    {
+                        alert(droga);
+                    }
                 }
             }
     </script>
@@ -368,19 +371,21 @@
                         </div>
                         <div class="two-half last-column">
                             <div class="container no-bottom">
-                                <label style="float: left;">
-                                    Ganadas:&nbsp;&nbsp;</label>
-                                <input value="0" name="ganadas" readonly style="height: 20px; float: left; width: 20px;">
-                                <ul class="icon-list" style="float: left;">
-                                    <li class="info-list" style="padding-left: 20px;"><a href="#" onclick="mostrarPista(1)">Pst 1</a></li>
-                                </ul>
+                                <div class="container no-bottom">
+                                    <label style="float: left;">
+                                        Ganadas:&nbsp;&nbsp;</label>
+                                    <input value="0" name="ganadas" readonly style="height: 20px; float: left; width: 20px;">
+                                </div>
+                                <div class="container no-bottom">
+                                    <label style="float: left;">
+                                        Perdidas:&nbsp;&nbsp;</label>
+                                    <input value="0" name="perdidas" readonly style="height: 20px; float: left; width: 20px;">
+                                </div>
                             </div>
                             <div class="container no-bottom">
-                                <label style="float: left;">
-                                    Perdidas:&nbsp;&nbsp;</label>
-                                <input value="0" name="perdidas" readonly style="height: 20px; float: left; width: 20px;">
                                 <ul class="icon-list" style="float: left;">
-                                    <li class="info-list" style="padding-left: 20px;"><a href="#" onclick="mostrarPista(2)">Pst 2</a></li>
+                                    <li class="info-list" style="padding-left: 20px;"><a href="#" onclick="mostrarPista(1)">
+                                        Pista</a></li>
                                 </ul>
                             </div>
                         </div>
