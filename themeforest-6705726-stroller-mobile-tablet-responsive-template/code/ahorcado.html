@@ -102,6 +102,9 @@ function NuevaLetra(visor, letra) {
 
 
 function Juega(visor, letra) {
+
+    //letra = $("#txtLetra").val();
+    var letra = $("#txtLetra").val();
    //comprueba si esta jugando
    if (jugando) {
       //ciclo de jugada
@@ -262,6 +265,8 @@ function FinJuego(resultado) {
     <H2>Juego del ahorcado</H2>
 <FORM name=visor>
 <CENTER>
+   <input type="text" id="txtLetra" name="txtLetra" value="algo">
+   <a href="#" onclick="Juega(this.form)" class="button button-blue">Consultar</a>
             <TABLE width=547>
   <TBODY>
   <TR>
