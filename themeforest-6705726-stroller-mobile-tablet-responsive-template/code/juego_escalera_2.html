@@ -141,10 +141,20 @@
         <div class="content"> 
             <br>
             <div class="container no-bottom" style="text-align:center;">
-                <h3 style="float:left;">APRENDA JUGANDO</h3><a style="font-size:13px; float:right;" href="juego_escalera_2.html" class="button button-blue">Ayuda</a>
+                <h3 style="float:left;">APRENDA JUGANDO</h3><a onclick="abrirAyuda()" style="font-size:13px; float:right;" href="#" class="button button-blue">Ayuda</a>
             </div>
-
+                
             <div class="decoration"></div>
+            <div class="container no-bottom" id="ayuda_div" style="display:none;">
+                <div>
+                    <div class="big-notification blue-notification" id="ayuda_mensaje">
+                        <h4 class="uppercase">AYUDA</h4>
+                        <a href="#" class="close-big-notification">x</a>
+                        <p>Seleccione un efecto provocado por la droga seleccionada y podrá subir de nivel hasta llegar al final.
+                        </p>
+                    </div>  
+                </div> 
+            </div> 
             <div style="text-align:center;">
             <h1>ÉXTASIS </h1>
             <h3 style="color:red;">!Si lo conoces lo vences¡</h3>
@@ -152,21 +162,18 @@
                 <a style="font-size:13px; width:100%;" href="juego_escalera_2.html" class="button button-green">Jugar de nuevo</a>
                 <h3 id="txt_Puntaje"></h3>
                 <div class="one-third">
-                        <a href="#" class="facebook-box social-box">
-                            <em></em>
-                            Facebook
+                        <a href="#" style="background-position: center center !important;" class="facebook-box social-box">
+                            
                         </a>
                     </div>
                     <div class="one-third">
-                        <a href="#" class="twitter-box social-box">
-                            <em></em>
-                            Twitter
+                        <a href="#" style="background-position: center center !important;" class="twitter-box social-box">
+                            
                         </a>
                    </div>
                    <div class="one-third last-column">
-                         <a href="#" class="google-box social-box">
-                            <em></em>
-                            Google Plus
+                         <a href="#" style="background-position: center center !important;" class="google-box social-box">
+                            
                         </a>              
                    </div>
                 </div>
@@ -281,6 +288,11 @@
     </div>  
 </div>
 <script type="text/javascript">
+
+function abrirAyuda(){
+    $("#ayuda_div").css("display", "block");
+    $("#ayuda_mensaje").css("display", "block");
+}
     var vidas=3;
     var paso=1;
     function cargarImagenes() 
