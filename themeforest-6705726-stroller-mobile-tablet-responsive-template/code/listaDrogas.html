@@ -255,6 +255,44 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="container">
+                            <div class="toggle-2">
+                                <a href="#" class="deploy-toggle-2">ÉXTASIS</a>
+                                
+                                <div class="toggle-content">
+                                    <p>
+                                    
+                                        <strong>Clasificación: </strong> Sintética
+                                    </p>
+                               
+                                        <div class="one-half-responsive ">
+                                            
+                                            <div class="submenu-navigation">
+                                                <div class="submenu-nav-items" style="overflow: hidden; display: block;">
+                                                    <a href="descripcion.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Definición y características</li></ul></a>
+                                                    <a href="efectos.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Efectos conocidos</li></ul></a>
+                                                    <a href="reconozca.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Aprenda a reconocerla</li></ul></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="one-half-responsive last-column" style="text-align:center;">
+                                            <div class="one-third">
+                                               <p></p>
+                                            </div>
+                                            <div class="one-third" style="margin-right:0px;">
+                                                     <p class="thumb-left no-bottom" style="padding:0px;">
+                                                        <img src="images/drugs/extasis.jpg" alt="img" style="margin-right:0px; margin-top:5px;">
+                                                    </p>
+                                            </div>
+                                            <div class="one-third last-column">
+                                                
+                                            </div>
+                                           
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="decoration"></div>
                 	<div class="container">
@@ -270,10 +308,10 @@
                 </div>       
             </div>  
         </div>
-        <script type="text-javascript">
+        <script type="text/javascript">
         function cargar_listaDrogas() {
                     var texto = "";
-                    var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/PNUD/uarivsoyvictima?$format=json";
+                    var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Justicia/tabladrogas?$format=json";
                     $.ajax({
                         url: url,
                         type: 'GET',
@@ -282,29 +320,70 @@
                         success: function (data) {
                             $.each(data, function (i, field) {
                                 var cant = field.length;
-                                var categorias_ingresadas = "";
+                                var drogas = "";
                                 $.each(field, function (x, item) {
-                                    if (categorias_ingresadas.indexOf("-" + field[x].idcategoria + "-") == -1) {
-                                        texto += " <option value='" + field[x].idcategoria + "'>" + field[x].categoria + "</option>";
-                                        categorias_ingresadas = categorias_ingresadas + "-" + field[x].idcategoria + "-";
-                                    }
+                                    alert(field[x].nombre_de_la_droga);
+                                    texto+='<div class="container">'+
+                                                '<div class="toggle-2">'+
+                                                    '<a href="#" class="deploy-toggle-2">'+field[x].nombre_de_la_droga+'</a>'+
+                                                    
+                                                    '<div class="toggle-content">'+
+                                                        '<p>'+
+                                                        '<strong>Clasificación: </strong> Sintética'+
+                                                        '</p>'+
+                                                   
+                                                            '<div class="one-half-responsive ">'+
+                                                                
+                                                                '<div class="submenu-navigation">'+
+                                                                    ''+
+                                                                        '<a href="descripcion.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Definición y características</li></ul></a>'+
+                                                                        '<a href="efectos.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Efectos conocidos</li></ul></a>'+
+                                                                        '<a href="reconozca.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Aprenda a reconocerla</li></ul></a>'+
+                                                                '</div>'+
+                                                            '</div>'+
+                                                            '<div class="one-half-responsive last-column" style="text-align:center;">'+
+                                                                '<div class="one-third">'+
+                                                                   '<p></p>'+
+                                                                '</div>'+
+                                                                '<div class="one-third" style="margin-right:0px;">'+
+                                                                         '<p class="thumb-left no-bottom" style="padding:0px;">'+
+                                                                            '<img src="images/drugs/extasis.jpg" alt="img" style="margin-right:0px; margin-top:5px;">'+
+                                                                        '</p>'+
+                                                                '</div>'+
+                                                                '<div class="one-third last-column">'+
+                                                                    
+                                                                '</div>'+
+                                                               
+                                                            '</div>'+
+                                                        
+                                                    '</div>'+
+                                                '</div>'+
+                                            '</div>';
                                 });
-                                $("#combo_categoria").append(texto);
-                                $("#combo_categoria").val("1");
-                                $("#combo_categoria").selectmenu('refresh');
-                                $('#div_cargando').hide();
+                                $("#lista_Drogas").append(texto);
+                                //$('.deploy-toggle-2').click(function(){
+                                  //  $(this).parent().find('.toggle-content').toggle(100);
+                                   // $(this).toggleClass('toggle-2-active');
+                                    //return false;
+                                //});
+
                             });
+                                
                         },
                         error: function (x, y, z) {
                             if(y == "timeout"){
-                                $('#div_sininternet').show();
-                                $('#filtro').hide();
-                                $('#div_cargando').hide();
+                                
                             }
                         }, 
                         timeout: 15000                          
                     });
                 }
+
+                $(document).ready(function () {
+                    
+                  cargar_listaDrogas();
+                });
+                
         </script>
         </body>
         </html>
