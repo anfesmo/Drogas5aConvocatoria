@@ -72,7 +72,38 @@
 
     <script type="text/javascript">
         var palabra
-        var libreriaPalabras = new Array("d_e_t_e_r_i_o_r_o_*_d_e_*_l_a_*_m_e_m_o_r_i_a", "i_n_t_e_r_n_a_u_t_a_*_a_b_c_d")
+        var libreriaPalabras = new Array("d_e_t_e_r_i_o_r_o_*_d_e_*_l_a_*_m_e_m_o_r_i_a",
+                                         "h_i_p_e_r_a_c_t_i_v_i_d_a_d_e_s_*_m_e_c_a_n_i_c_a_s",
+                                         "i_n_f_l_a_m_a_c_i_o_n_*_d_e_*_l_o_s_*_v_a_s_o_s_*_s_a_n_g_u_i_n_e_o_s",
+                                         "d_i_s_m_i_n_u_c_i_o_n_*_d_e_*_l_a_*_c_a_p_a_c_i_d_a_d_*_d_e_*_c_o_n_c_e_n_t_r_a_c_i_o_n",
+                                         "c_o_a_g_u_l_a_c_i_o_n_*_a_n_o_r_m_a_l_*_d_e_*_l_a_*_s_a_n_g_r_e",
+                                         "i_n_s_u_f_i_c_i_e_n_c_i_a_*_r_e_n_a_l_*_y_*_h_e_p_a_t_i_c_a",
+                                         "i_n_h_i_b_i_r_*_l_a_*_e_r_e_c_c_i_o_n_*_m_a_s_c_u_l_i_n_a",
+                                         "i_n_f_l_a_m_a_c_i_o_n_*_c_e_r_e_b_r_a_l",
+                                         "a_u_m_e_n_t_o_*_d_e_*_l_a_*_p_r_e_s_i_o_n_*_a_r_t_e_r_i_a_l",
+                                         "c_o_m_p_l_i_c_a_c_i_o_n_e_s_*_r_e_s_p_i_r_a_t_o_r_i_a_s",
+                                         "c_a_n_c_e_r_*_d_e_*_b_o_c_a_*_y_*_g_a_r_g_a_n_t_a",
+                                         "m_e_n_o_p_a_u_s_i_a_*_p_r_e_m_a_t_u_r_a",
+                                         "c_a_n_c_e_r_*_d_e_*_p_u_l_m_o_n",
+                                         "d_i_s_m_i_n_u_c_i_o_n_*_d_e_l_*_n_i_v_e_l_*_d_e_*_c_o_n_c_i_e_n_c_i_a",
+                                         "p_e_r_d_i_d_a_*_d_e_l_*_e_q_u_i_l_i_b_r_i_o",
+                                         "c_a_m_b_i_o_s_*_e_n_*_l_a_*_v_i_s_i_o_n")
+        var libreriaPistas = new Array("Efecto causado por consumir Metanfetamina",
+                                       "Efecto causado por consumir Metanfetamina",
+                                       "Efecto causado por consumir Metanfetamina",
+                                       "Efecto causado por consumir Metanfetamina",
+                                       "Efecto causado por consumir Extasis",
+                                       "Efecto causado por consumir Extasis",
+                                       "Efecto causado por consumir Extasis",
+                                       "Efecto causado por consumir Extasis",
+                                       "Efecto causado por consumir Cocaína",
+                                       "Efecto causado por consumir Cocaína",
+                                       "Efecto causado por consumir cigarrillo",
+                                       "Efecto causado por consumir cigarrillo",
+                                       "Efecto causado por consumir cigarrillo",
+                                       "Efecto causado por consumir bebidas alcoholicas",
+                                       "Efecto causado por consumir bebidas alcoholicas",
+                                       "Efecto causado por consumir bebidas alcoholicas")
         var partes = 1
         var colNueva = 0
         var jugando
@@ -80,7 +111,7 @@
 
         function ObtienePalabra() {
             //obtiene la palabra para jugar de forma pseudoaleatoria
-            var indice = Math.round(Math.random() * 1)
+            var indice = Math.round(Math.random() * 15)
             var cadena = new String(libreriaPalabras[indice])
             palabra = cadena.split("_")
         }
@@ -199,6 +230,10 @@
                 //construye la palabra solucion
                 for (var x = 0; x < palabra.length; x++)
                     solucion += palabra[x]
+                while (solucion.toString().indexOf("*") != -1)
+                {
+                    solucion = solucion.toString().replace("*", " ");
+                }
                 alert("¡Has perdido!\n La palabra era: " + solucion)
             }
         }
