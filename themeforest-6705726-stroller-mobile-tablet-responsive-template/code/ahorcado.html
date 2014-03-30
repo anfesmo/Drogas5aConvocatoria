@@ -72,11 +72,7 @@
 
     <script type="text/javascript">
         var palabra
-        var libreriaPalabras = new Array("m u l t i m e d i a", "i n t e r n a u t a", "s e r v i d o r", "p r o t o c o l o", "c o r t a f u e g o s",
-        "n a v e g a d o r", "n o d o", "m a r c o", "p a g i n a", "t e l a r a ñ a",
-        "d e s c a r g a r", "v i r t u a l", "m e m o r i a", "d i s c o", "l o c a l",
-        "c o n e c t a r", "d e s c o n e c t a r", "e n c a m i n a d o r", "i n t e r n e t", "d o m i n i o",
-        "d i n a m i c o", "h i p e r v i n c u l o", "e n l a c e", "m a r c a d o r", "o r d e n a d o r", "l a p i z", "o f i m a t i c a", "i n f o r m e")
+        var libreriaPalabras = new Array("d_e_t_e_r_i_o_r_o_*_d_e_*_l_a_*_m_e_m_o_r_i_a", "i_n_t_e_r_n_a_u_t_a_*_a_b_c_d")
         var partes = 1
         var colNueva = 0
         var jugando
@@ -84,9 +80,9 @@
 
         function ObtienePalabra() {
             //obtiene la palabra para jugar de forma pseudoaleatoria
-            var indice = Math.round(Math.random() * 27)
+            var indice = Math.round(Math.random() * 1)
             var cadena = new String(libreriaPalabras[indice])
-            palabra = cadena.split(" ")
+            palabra = cadena.split("_")
         }
 
 
@@ -105,7 +101,7 @@
             var flag = false
             //indica si se encontro la letra
             //obtiene cadena actual
-            var cadena = new String(visor.displayPalabra.value)
+            var cadena = new String(visor.displayPalabra.value.replace(/     /g, " * "))
             //la separa en sus espacios
             var letrasCadena = cadena.split(" ")
             cadena = ""
@@ -113,8 +109,13 @@
                 if (palabra[x] == letra) {
                     cadena += letra + " "
                     flag = true
-                } else
-                    cadena += letrasCadena[x] + " "
+                } else {
+                    if (palabra[x] == "*") {
+                        cadena += "    "
+                    } else {
+                        cadena += letrasCadena[x] + " "
+                    } 
+                }
             }
             visor.displayPalabra.value = cadena
             return flag
@@ -163,7 +164,12 @@
             DibujaHombre(visor, partes)
             visor.displayPalabra.value = ""
             for (var x = 0; x < palabra.length; x++)
-                visor.displayPalabra.value += "_ "
+                if (palabra[x] == "*")
+                {
+                    visor.displayPalabra.value += "    "
+                } else {
+                    visor.displayPalabra.value += "_ "
+                }
             visor.displayLetras.value = ""
         }
 
@@ -187,13 +193,13 @@
             jugando = false
             if (resultado) {
                 document.visor.ganadas.value++
-                alert("Acertaste !")
+                alert("¡Has ganado!")
             } else {
                 document.visor.perdidas.value++
                 //construye la palabra solucion
                 for (var x = 0; x < palabra.length; x++)
                     solucion += palabra[x]
-                alert("Has muerto !\n La palabra era: " + solucion)
+                alert("¡Has perdido!\n La palabra era: " + solucion)
             }
         }
     </script>
@@ -372,15 +378,19 @@
                                 </div>
                             </div>
                             <div class="container no-bottom">
-                                <div class="static-notification-blue" style="margin-bottom: 5px;">
+                                <div class="static-notification-green" style="margin-bottom: 5px; background-color: #16a085; ">
                                     Letras Ingresadas
-                                    <p class="center-text uppercase"><input type="text" name=displayLetras style="margin-left: 5%; width: 90%;" /></p>
+                                    <p class="center-text uppercase" style="margin-top: 0px;">
+                                        <input type="text" name=displayLetras style="margin-left: 2%; width: 96%;" />
+                                    </p>
                                 </div>
                             </div>
-                            <div class="container no-bottom">
-                                <div class="static-notification-blue" style="margin-bottom: 5px;">
+                            <div class="container no-bottom" style="margin-bottom: 5px;">
+                                <div class="static-notification-green" style="margin-bottom: 5px; background-color: #16a085; ">
                                     Efecto a encontrar
-                                    <p class="center-text uppercase"><input name=displayPalabra style="margin-left: 5%; width: 90%;"></p>
+                                    <p class="center-text uppercase" style="margin-top: 0px;">
+                                        <input name=displayPalabra style="margin-left: 2%; width: 96%;">
+                                    </p>
                                 </div>
                             </div>
                             <div class="one-half">
@@ -420,16 +430,6 @@
                             </div>
                         </center>
                     </form>
-
-                    <div class="decoration"></div>
-                    <div class="container">
-                        <div class="footer-socials">
-                            <a href="#" class="facebook-footer"></a>
-                            <a href="#" class="goup-footer"></a>
-                            <a href="#" class="twitter-footer"></a>
-                        </div>
-                        <p class="copyright uppercase center-text no-bottom">ODC 2014<br> Todos los derechos reservados</p>
-                    </div>
                 </div>
             </div>
             <div class="decoration"></div>
