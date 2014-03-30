@@ -322,7 +322,7 @@
                                 var cant = field.length;
                                 var drogas = "";
                                 $.each(field, function (x, item) {
-                                    alert(field[x].nombre_de_la_droga);
+                                    //alert(field[x].nombre_de_la_droga);
                                     texto+='<div class="container">'+
                                                 '<div class="toggle-2">'+
                                                     '<a href="#" class="deploy-toggle-2">'+field[x].nombre_de_la_droga+'</a>'+
@@ -335,10 +335,12 @@
                                                             '<div class="one-half-responsive ">'+
                                                                 
                                                                 '<div class="submenu-navigation">'+
-                                                                    ''+
-                                                                        '<a href="descripcion.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Definición y características</li></ul></a>'+
-                                                                        '<a href="efectos.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Efectos conocidos</li></ul></a>'+
-                                                                        '<a href="reconozca.html"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Aprenda a reconocerla</li></ul></a>'+
+                                                                    '<div class="submenu-nav-items" style="overflow: hidden; display: block;">'+
+                                                    
+                                                                        '</div>'+
+                                                                       '<a href="descripcion.html" style="border-top: solid 1px rgba(0,0,0,0.1); padding-left: 20px !important; padding-top: 10px !important; padding-bottom: 10px !important; border-bottom: solid 1px rgba(0,0,0,0.1) !important;"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Definición y características</li></ul></a>'+
+                                                                        '<a href="efectos.html" style="border-top: solid 1px rgba(0,0,0,0.1); padding-left: 20px !important; padding-top: 10px !important; padding-bottom: 10px !important; border-bottom: solid 1px rgba(0,0,0,0.1) !important;"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Efectos conocidos</li></ul></a>'+
+                                                                        '<a href="reconozca.html" style="border-top: solid 1px rgba(0,0,0,0.1); padding-left: 20px !important; padding-top: 10px !important; padding-bottom: 10px !important; border-bottom: solid 1px rgba(0,0,0,0.1) !important;"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Aprenda a reconocerla</li></ul></a>'+
                                                                 '</div>'+
                                                             '</div>'+
                                                             '<div class="one-half-responsive last-column" style="text-align:center;">'+
@@ -360,12 +362,12 @@
                                                 '</div>'+
                                             '</div>';
                                 });
-                                $("#lista_Drogas").append(texto);
-                                //$('.deploy-toggle-2').click(function(){
-                                  //  $(this).parent().find('.toggle-content').toggle(100);
-                                   // $(this).toggleClass('toggle-2-active');
-                                    //return false;
-                                //});
+                                $("#lista_Drogas").html(texto);
+                                $('.deploy-toggle-2').click(function(){
+                                    $(this).parent().find('.toggle-content').toggle(100);
+                                    $(this).toggleClass('toggle-2-active');
+                                    return false;
+                                });
 
                             });
                                 
@@ -385,6 +387,14 @@
                 });
                 
         </script>
+        <style>
+        .submenu-nav-items a {
+            padding-left: 20px !important;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+            border-bottom: solid 1px rgba(0,0,0,0.1) !important;
+            }
+        </style>
         </body>
         </html>
 
