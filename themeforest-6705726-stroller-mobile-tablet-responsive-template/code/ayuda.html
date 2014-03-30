@@ -35,6 +35,29 @@
     <script type="text/javascript" src="scripts/framework.launcher.js"></script>
 
     <style type="text/css">
+        .styled-select {
+            width: 95%;
+            height: 34px;
+            overflow: hidden;
+            background: url(images/flecha_abajo.png) no-repeat right #ddd;
+            padding: 3px;
+            margin: 5px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+            -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+            box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+            color: #888;
+            border: none;
+            outline: none;
+            display: inline-block;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
         .icon-creatwrite {
             background-image: url(images/icons/misc/creatwrite.png);
         }
@@ -56,6 +79,15 @@
         function consultarDiagnostico() {
             $('#div_diagnostico').show();
             $('html, body').animate({ scrollTop: $('#div_diagnostico').offset().top }, 'slow');
+        }
+
+        function verDatos() {
+            $('#ayuda_p').html("");
+            if ($('#select_ciudad').val() == 'barranquilla') {
+                $('#ayuda_p').html("A.A. ALCOHÓLICOS ANÓNIMOS<br />Carrera 54 # 52-36 Of 17<br />Tel: (57) (5) 3440317<br /><br />CENTRO TERAPEÚTICO RE-ENCONTRARSE<br />Carrera 45 # 84-197<br />Tel: (57) (5) 3597069<br /><br />FUNDACIÓN HOGARES CLARET<br />Av Circunvalar 41 A-286<br />Tel: (57) (5) 3193892");
+            } else if ($('#select_ciudad').val() == 'santamarta') {
+                $('#ayuda_p').html("FUNDACIÓN REHABILITACIÓN INTEGRAL<br/>Carrera 3 # 18-27 El Rodadero<br/>Teléfono: (57) (5) 4226815");
+            }
         }
     </script>
 </head>
@@ -195,126 +227,45 @@
             <div class="page-header-clear"></div>
             <div class="content">
                 <div class="container no-bottom" style="text-align:center; margin-top: 10px;">
-                    <h3>DIAGNÓSTICO A UN TERCERO</h3>
+                    <h3>Obtener ayuda acerca del Extasis</h3>
                 </div>
                 <div class="decoration"></div>
-
-
-
                 <div class="container no-bottom">
                     <div>
                         <div class="big-notification blue-notification">
                             <h4 class="uppercase">AYUDA</h4>
                             <a href="#" class="close-big-notification">x</a>
                             <p>
-                                Este módulo le permite obtener un diagnóstico probabilístico de la o las drogas en que puede estar un tercero a partir de unos síntomas detectados.
+                                Este módulo le permite obtener recomendaciones e información de contacto de la drogra seleccionada
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="container no-bottom">
-                    <h4>Seleccione los síntomas que ha detectado del tercero</h4>
-                </div>
-                <div class="container half-bottom">
-                    <a href="#" class="checkbox checkbox-three">Deterioro de la memoria</a>
-                    <a href="#" class="checkbox checkbox-three">Deterioro del aprendizaje</a>
-                    <a href="#" class="checkbox checkbox-three">Hiperactividades mecánicas(Apretar los dientes)</a>
-                    <a href="#" class="checkbox checkbox-three">Alucinaciones, ideación paranoide</a>
-                    <a href="#" class="checkbox checkbox-three">Disminución de la cantidad y calidad del sueño</a>
-                    <a href="#" class="checkbox checkbox-three">Agresión y posible violencia</a>
-                    <a href="#" class="checkbox checkbox-three">Alucinaciones auditivas</a>
-                    <a href="#" class="checkbox checkbox-three">Dilatación de las pupilas</a>
-                    <a href="#" class="checkbox checkbox-three">Coagulación anormal de la sangre</a>
-                    <a href="#" class="checkbox checkbox-three">Insuficiencia renal e insuficiencia hepática</a>
-                </div>
-                <div class="container no-bottom">
-                    <p class="center-text">
-                        <a href="#" class="button-icon icon-creatwrite button-turqoise" onclick="consultarDiagnostico()">Obtener diagnóstico</a>
-                    </p>
-                </div>
-                <div id="div_diagnostico" style="display: none;">
-                    <div class="container no-bottom">
-                        <h5>Las siguientes son algunas de las posibles drogas en las que se encuentra el tercero y su respectiva probabilidad</h5>
+                <div class="container">
+                    <div class="tabs">
+                        <a href="#" class="tab-but tab-but-1 tab-active">Recomendaciones</a>
+                        <a href="#" class="tab-but tab-but-2">Información de Contacto</a>
                     </div>
-                    <div class="container">
-                        <div class="toggle-2">
-                            <a href="#" class="deploy-toggle-2">
-                                <div class="chart chart-round">
-                                    <strong>Éxtasis</strong>
-                                    <em>90%</em>
-                                    <div class="chart-background">
-                                        <div class="red-chart p90"></div>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="toggle-content">
-                                <div class="one-half-responsive">
-                                    <p class="thumb-left no-bottom">
-                                        <img src="images/drugs/extasis.jpg" alt="img">
-                                        <em><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </em>
-                                        <div class="container">
-                                            <a href="puntosAtencion.html" class="button-icon icon-maps button-turqoise">Ver puntos de atención</a>
-                                            <a href="ayuda.html" class="button-icon icon-alert2 button-turqoise">Obtener ayuda</a>
-                                        </div>
-                                    </p>
-                                    <div class="thumb-clear"></div>
-                                </div>
-                            </div>
+                    <div class="tab-content tab-content-1">
+                        <p>
+                            <img src="images/drugs/extasis.jpg" class="float-left" width="70" alt="img">
+                            Nombre dado a la sustancia denominada quimicamente como metilendioximetanfetamina cuya abreviatura es MDMA.
+                        </p>
+                    </div>
+                    <div class="tab-content tab-content-2">
+                        <div class="container" style="margin: 0px 0px 0px 0px;">
+                            <select class="styled-select" name="select_ciudad" id="select_ciudad" onchange="verDatos();">
+                                <option value='seleccione' selected>Seleccione Ciudad</option>
+                                <option value='barranquilla'>Barranquilla</option>
+                                <option value='santamarta'>Santa Marta</option>
+                                <option value='bogota'>Bogotá</option>
+                                <option value='manizales'>Manizales</option>
+                            </select>
                         </div>
+                        <p id="ayuda_p">
+                        </p>
                     </div>
-                    <div class="container">
-                        <div class="toggle-2">
-                            <a href="#" class="deploy-toggle-2">
-                                <div class="chart chart-round">
-                                    <strong>Clorhidrato de cocaína</strong>
-                                    <em>50%</em>
-                                    <div class="chart-background">
-                                        <div class="yellow-chart p50"></div>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="toggle-content">
-                                <div class="one-half-responsive">
-                                    <p class="thumb-left no-bottom">
-                                        <img src="images/drugs/cocaina.jpg" alt="img">
-                                        <em><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </em>
-                                        <div class="container">
-                                            <a href="puntosAtencion.html" class="button-icon icon-maps button-turqoise">Ver puntos de atención</a>
-                                            <a href="ayuda.html" class="button-icon icon-alert2 button-turqoise">Obtener ayuda</a>
-                                        </div>
-                                    </p>
-                                    <div class="thumb-clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="toggle-2">
-                            <a href="#" class="deploy-toggle-2">
-                                <div class="chart chart-round">
-                                    <strong>Metanfetamina</strong>
-                                    <em>20%</em>
-                                    <div class="chart-background">
-                                        <div class="blue-chart p20"></div>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="toggle-content">
-                                <div class="one-half-responsive">
-                                    <p class="thumb-left no-bottom">
-                                        <img src="images/drugs/metanfetamina.jpg" alt="img">
-                                        <em><br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </em>
-                                        <div class="container">
-                                            <a href="puntosAtencion.html" class="button-icon icon-maps button-turqoise">Ver puntos de atención</a>
-                                            <a href="ayuda.html" class="button-icon icon-alert2 button-turqoise">Obtener ayuda</a>
-                                        </div>
-                                    </p>
-                                    <div class="thumb-clear"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>      
             </div>
             <div class="decoration"></div>
              <div class="container">
