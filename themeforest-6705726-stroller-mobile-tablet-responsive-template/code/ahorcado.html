@@ -72,6 +72,7 @@
 
     <script type="text/javascript">
         var palabra
+        var droga
         var libreriaPalabras = new Array("d_e_t_e_r_i_o_r_o_*_d_e_*_l_a_*_m_e_m_o_r_i_a",
                                          "h_i_p_e_r_a_c_t_i_v_i_d_a_d_e_s_*_m_e_c_a_n_i_c_a_s",
                                          "i_n_f_l_a_m_a_c_i_o_n_*_d_e_*_l_o_s_*_v_a_s_o_s_*_s_a_n_g_u_i_n_e_o_s",
@@ -113,6 +114,7 @@
             //obtiene la palabra para jugar de forma pseudoaleatoria
             var indice = Math.round(Math.random() * 15)
             var cadena = new String(libreriaPalabras[indice])
+            droga = new String(libreriaPistas[indice])
             palabra = cadena.split("_")
         }
 
@@ -224,7 +226,7 @@
             jugando = false
             if (resultado) {
                 document.visor.ganadas.value++
-                alert("¡Has ganado!")
+                alert("¡Has ganado! " + solucion + " - " + droga)
             } else {
                 document.visor.perdidas.value++
                 //construye la palabra solucion
@@ -234,7 +236,7 @@
                 {
                     solucion = solucion.toString().replace("*", " ");
                 }
-                alert("¡Has perdido!\n La palabra era: " + solucion)
+                alert("¡Has perdido!\n La frase era: " + solucion + "-" + droga)
             }
         }
     </script>
