@@ -148,7 +148,28 @@
             <div style="text-align:center;">
             <h1>ÉXTASIS </h1>
             <h3 style="color:red;">!Si lo conoces lo vences¡</h3>
-            <a id="jugar_nuevamente" style="font-size:13px; display:none;" href="juego_escalera_2.html" class="button button-green">Jugar de nuevo</a>
+            <div id="jugar_nuevamente" style="display:none;">
+                <a style="font-size:13px; width:100%;" href="juego_escalera_2.html" class="button button-green">Jugar de nuevo</a>
+                <h3 id="txt_Puntaje">Tu puntaje es: 100. Reta a tus amigos.</h3>
+                <div class="one-third">
+                        <a href="#" class="facebook-box social-box">
+                            <em></em>
+                            Facebook
+                        </a>
+                    </div>
+                    <div class="one-third">
+                        <a href="#" class="twitter-box social-box">
+                            <em></em>
+                            Twitter
+                        </a>
+                   </div>
+                   <div class="one-third last-column">
+                         <a href="#" class="google-box social-box">
+                            <em></em>
+                            Google Plus
+                        </a>              
+                   </div>
+                </div>
             </div>
             <div id="div1" onclick="nuevoPaso(1, 6)" style="width: 24%; float: left; margin-right: 1%; background-color:#e67e22; color:white; height:60px; text-align:center; font-weight: bold; font-size: 100%; padding: 3px; margin-bottom:1%;">
                PUPILAS DILATADAS
@@ -278,6 +299,9 @@
                         $("#div"+id).fadeIn( "fast", function() {
                             if(nivel==6){
                                 alert("FELICITACIONES, sus conocimientos sobre el ÉXTASIS han sido demostrados");
+                                $("#jugar_nuevamente").css("display", "block");
+                                puntaje=100*vidas;
+                                $("#txt_Puntaje").html("Tu puntaje es "+puntaje+". Reta a tus amigos.");
                             }
                         });
                     
@@ -299,6 +323,31 @@
                     else{
                         $("#div"+id).css("background-color", "#c0392b");
                         alert("Lo sentimos, el límite de pasos incorrectos ha sido alcanzado, revisa el camino correcto.")
+                        if(nivel==1){
+                            puntaje=0;
+                            $("#txt_Puntaje").html("Tu puntaje es "+puntaje+". Reta a tus amigos.");
+                        }
+                        if(nivel==2){
+                            puntaje=15;
+                            $("#txt_Puntaje").html("Tu puntaje es "+puntaje+". Reta a tus amigos.");
+                        }
+                        if(nivel==3){
+                            puntaje=30;
+                            $("#txt_Puntaje").html("Tu puntaje es "+puntaje+". Reta a tus amigos.");
+                        }
+                        if(nivel==4){
+                            puntaje=45;
+                            $("#txt_Puntaje").html("Tu puntaje es "+puntaje+". Reta a tus amigos.");
+                        }
+                        if(nivel==5){
+                            puntaje=60;
+                            $("#txt_Puntaje").html("Tu puntaje es "+puntaje+". Reta a tus amigos.");
+                        }
+                        if(nivel==6){
+                            puntaje=75;
+                            $("#txt_Puntaje").html("Tu puntaje es "+puntaje+". Reta a tus amigos.");
+                        }
+                        
                         $("#jugar_nuevamente").css("display", "block");
                         $("#div"+3).css("background-color", "#27ae60");
                         $("#div"+6).css("background-color", "#27ae60");
