@@ -161,80 +161,7 @@
                 <div id="lista_Drogas">
                     <div class="container">
                         <div class="toggle-2">
-                            <a href="#" class="deploy-toggle-2">ÉXTASIS</a>
-                            <div class="toggle-content">
-                                <p>
-                                    <strong>Clasificación: </strong>Sintética
-                                </p>
-                                <div class="one-half-responsive ">
-                                    <div class="submenu-navigation">
-                                        <div class="submenu-nav-items" style="overflow: hidden; display: block;">
-                                            <a href="descripcion.html">
-                                                <ul style="margin-bottom: 0px;" class="icon-list">
-                                                    <li class="right-list">Definición y características</li></ul>
-                                            </a><a href="efectos.html">
-                                                <ul style="margin-bottom: 0px;" class="icon-list">
-                                                    <li class="right-list">Efectos conocidos</li></ul>
-                                            </a><a href="reconozca.html">
-                                                <ul style="margin-bottom: 0px;" class="icon-list">
-                                                    <li class="right-list">Aprenda a reconocerla</li></ul>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="one-half-responsive last-column" style="text-align: center;">
-                                    <div class="one-third">
-                                        <p>
-                                        </p>
-                                    </div>
-                                    <div class="one-third" style="margin-right: 0px;">
-                                        <p class="thumb-left no-bottom" style="padding: 0px;">
-                                            <img src="images/drugs/extasis.jpg" alt="img" style="margin-right: 0px; margin-top: 5px;">
-                                        </p>
-                                    </div>
-                                    <div class="one-third last-column">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="toggle-2">
-                            <a href="#" class="deploy-toggle-2">ÉXTASIS</a>
-                            <div class="toggle-content">
-                                <p>
-                                    <strong>Clasificación: </strong>Sintética
-                                </p>
-                                <div class="one-half-responsive ">
-                                    <div class="submenu-navigation">
-                                        <div class="submenu-nav-items" style="overflow: hidden; display: block;">
-                                            <a href="descripcion.html">
-                                                <ul style="margin-bottom: 0px;" class="icon-list">
-                                                    <li class="right-list">Definición y características</li></ul>
-                                            </a><a href="efectos.html">
-                                                <ul style="margin-bottom: 0px;" class="icon-list">
-                                                    <li class="right-list">Efectos conocidos</li></ul>
-                                            </a><a href="reconozca.html">
-                                                <ul style="margin-bottom: 0px;" class="icon-list">
-                                                    <li class="right-list">Calificar</li></ul>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="one-half-responsive last-column" style="text-align: center;">
-                                    <div class="one-third">
-                                        <p>
-                                        </p>
-                                    </div>
-                                    <div class="one-third" style="margin-right: 0px;">
-                                        <p class="thumb-left no-bottom" style="padding: 0px;">
-                                            <img src="images/drugs/extasis.jpg" alt="img" style="margin-right: 0px; margin-top: 5px;">
-                                        </p>
-                                    </div>
-                                    <div class="one-third last-column">
-                                    </div>
-                                </div>
-                            </div>
+                            <strong>No se encontró conexión a Internet</strong>
                         </div>
                     </div>
                 </div>
@@ -326,6 +253,7 @@
             pagina_actual = 1;
             ultima_pagina = 1;
             primera_pagina = 1;
+            num_aleatorio = 1;
             var texto_aux = "";
             var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/corabastos/locales?$filter=\"comercializacion\"='"+tipoGrano+"'&$format=json";
             $.ajax({
@@ -340,11 +268,19 @@
 
                         $.each(field, function (x, item) {
 
-                                texto += '<div class="container todas ' + pagina + '" >' +
-                                                    '<div class="toggle-2">' +
-                                                        '<a href="#" class="deploy-toggle-2">' + field[x].codigolocal + ' - ' + field[x].comercializacion + '</a><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_vacia.png"><img class="star" src="images/estrella_vacia.png">' +
+                            texto += '<div class="container todas ' + pagina + '" >' +
+                                                    '<div class="toggle-2">';
+                            if (num_aleatorio < 2) {
+                                texto += '<a href="#" class="deploy-toggle-2">' + field[x].codigolocal + ' - ' + field[x].comercializacion + '</a><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png">';
+                            } else if (num_aleatorio < 4) {
+                                texto += '<a href="#" class="deploy-toggle-2">' + field[x].codigolocal + ' - ' + field[x].comercializacion + '</a><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_vacia.png">';
+                            } else {
+                                texto += '<a href="#" class="deploy-toggle-2">' + field[x].codigolocal + ' - ' + field[x].comercializacion + '</a><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_vacia.png"><img class="star" src="images/estrella_vacia.png">';
+                            }
 
-                                                        '<div class="toggle-content">' +
+                            num_aleatorio++;
+
+                            texto += '<div class="toggle-content">' +
                                                             '<p>' +
                                                             '<strong>Extensión en m2: </strong> ' + field[x].aream2 + '  ' +
                                                             '</p>' +
@@ -356,19 +292,19 @@
 
                                                                             '</div>' +
                                                                            '<a href="#" style="border-top: solid 1px rgba(0,0,0,0.1); padding-left: 20px !important; padding-top: 10px !important; padding-bottom: 10px !important; border-bottom: solid 1px rgba(0,0,0,0.1) !important;"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Como Llegar ?</li></ul></a>' +
-                                                                        '<a href="#" onclick="consultarProductos(\''+field[x].comercializacion+'\')" style="border-top: solid 1px rgba(0,0,0,0.1); padding-left: 20px !important; padding-top: 10px !important; padding-bottom: 10px !important; border-bottom: solid 1px rgba(0,0,0,0.1) !important;"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Lista de Productos </li></ul></a>' +
+                                                                        '<a href="#" onclick="consultarProductos(\'' + field[x].comercializacion + '\')" style="border-top: solid 1px rgba(0,0,0,0.1); padding-left: 20px !important; padding-top: 10px !important; padding-bottom: 10px !important; border-bottom: solid 1px rgba(0,0,0,0.1) !important;"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Lista de Productos </li></ul></a>' +
                                                                         '<a href="#" style="border-top: solid 1px rgba(0,0,0,0.1); padding-left: 20px !important; padding-top: 10px !important; padding-bottom: 10px !important; border-bottom: solid 1px rgba(0,0,0,0.1) !important;"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Calificar</li></ul></a>' +
                                                                     '</div>' +
                                                                 '</div>' +
                                                         '</div>' +
                                                     '</div>' +
                                                 '</div>';
-                                numeropp++;
-                                cont++;
-                                if (numeropp == 5) {
-                                    pagina++;
-                                    numeropp = 0;
-                                }
+                            numeropp++;
+                            cont++;
+                            if (numeropp == 5) {
+                                pagina++;
+                                numeropp = 0;
+                            }
                         });
                         $("#lista_Drogas").html(texto);
                         if (cont % 5 == 0) {
