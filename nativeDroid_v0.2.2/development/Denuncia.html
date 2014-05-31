@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Entidades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <!-- jQueryMobileCSS - original without styling -->
+    <link rel="stylesheet" href="css/jquerymobile.css" />
+    <!-- nativeDroid core CSS -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+    <!-- nativeDroid: Light/Dark -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.light.css" id='jQMnDTheme' />
+    <!-- nativeDroid: Color Schemes -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
+    <style type="text/css">
+        .parra_texto
+        {
+            font-weight: 300;
+            margin: 7px 0;
+            white-space: normal;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: 59px;
+            width: 100%;
+        }
+        .listdo_iconos
+        {
+            padding-bottom: 40px;
+            border: 0 !important;
+        }
+        
+        .imagen_icono
+        {
+            float: left !important;
+        }
+    
+        .textoEnlace
+        {
+            Color:black !important;
+        }
+    
+    
+    
+    </style>
+    <!-- jQuery / jQueryMobile Scripts -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery.mobile-1.3.1.min.js"></script>
+    <!--<script type="text/javascript" charset="utf-8" src="cordova.js"></script>-->
+    <script>
+    function abrirUnidad() {
+    
+    window.open("http://www.unidadvictimas.gov.co/index.php/en/sala-de-prensa/noticias", "_blank", "closebuttoncaption=Regresar");
+    
+    }
+    
+    function abrirEscuela() {
+    
+    window.open("http://escuela.unidadvictimas.gov.co/index.php/en/", "_blank", "closebuttoncaption=Regresar");
+    
+    }
+    </script> 
+</head>
+<body>
+    <div data-role="page" data-theme='b'>
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="index.html" data-ajax="false"><i class='icon-ellipsis-vertical'></i></a>
+            <h1>
+                Denuncia de irregularidades</h1>
+        </div>
+        <div data-role="content">
+            <div class='message info'>
+                <i class='icon-info-sign'></i>
+                <p>
+                    En esta secci&oacute;n podr&aacute; reportar irregularidades en los precios de los insumos.
+                </p>
+            </div>
+            <form>
+                <ul data-role="listview" data-inset="true">
+                     <li data-role="fieldcontain">
+                        <label for="name2b">Ubicaci&oacute;n de la denuncia (Municipio, vereda, pueblo):</label>
+                        <input type="text" name="name2" id="name2b" value="" data-clear-btn="true" >
+                    </li>
+                     <li data-role="fieldcontain">
+                        <label for="name2b">Nombre de la tienda o comerciante infractor:</label>
+                        <input type="text" name="name2" id="name2b" value="" data-clear-btn="true" >
+                    </li>
+                    <li data-role="fieldcontain">
+                        <label for="name2b">Precio dado por el infractor:</label>
+                        <input type="text" name="name2" id="name2b" value="" data-clear-btn="true" >
+                    </li>
+                    <li data-role="fieldcontain">
+                        <label for="name2b">Descripci&oacute;n del producto:</label>
+                        <input type="text" name="name2" id="name2b" value="" data-clear-btn="true" >
+                    </li>
+                    <li data-role="fieldcontain">
+                        <label for="name2b">Datos adicionales:</label>
+                        <input type="text" name="name2" id="name2b" value="" data-clear-btn="true" >
+                    </li>
+                     <li>
+                        <fieldset class="ui-grid-a">
+                                
+                                <div class="ui-block-b"><button type="submit" data-theme="b">Enviar</button></div>
+                        </fieldset>
+                    </li>
+                </ul>
+            </form>
+            <div data-position="fixed" data-tap-toggle="false" data-role="footer" data-tap-toggle="false"
+                data-theme='b'>
+                <div data-role="navbar">
+                    <ul>
+						<li style="height:48px; padding-left:0.5%; padding-top:11px; border-right:none !important;"><strong>S&iacute;guenos: </strong></li>
+                        <li><a href="#" onclick="abrirFacebook()" data-icon="facebook"></a></li>
+                        <li><a href="#" onclick="abrirTwitter()" data-icon="twitter"></a></li>
+                        <li><a href="#" onclick="abrirYoutube()" data-icon="youtube"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    function denunciar(){
+        document.location.href="Denuncia.html";
+    }
+        function abrirFacebook ()
+        {
+            window.open("https://www.facebook.com/unidadvictimas", "_blank", "closebuttoncaption=Regresar");
+        }
+    
+    function abrirTwitter ()
+    {
+        window.open("https://twitter.com/UnidadVictimas", "_blank", "closebuttoncaption=Regresar");
+    }
+    
+    function abrirYoutube ()
+    {
+        window.open("http://www.youtube.com/user/UPARIV", "_blank", "closebuttoncaption=Regresar");
+    }
+    
+        </script>
+
+</body>
+</html>

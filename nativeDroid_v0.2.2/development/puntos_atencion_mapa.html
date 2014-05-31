@@ -13,7 +13,7 @@
     <!-- nativeDroid: Light/Dark -->
     <link rel="stylesheet" href="css/jquerymobile.nativedroid.light.css" id='jQMnDTheme' />
     <!-- nativeDroid: Color Schemes -->
-    <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.red.css" id='jQMnDColor' />
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
     <style type="text/css">
         .parra_texto
         {
@@ -216,96 +216,63 @@
         }
 
         $(document).ready(function () {
-            $('#div_sininternet').hide();
+           
             $('.ui-icon.ui-icon-arrow-d.ui-icon-shadow').hide();
-            $('#mensaje_sinregistros').hide();
-            try {
-
-                xmlDoc = AbrirFichero("xml/autenticacion.xml");
-                xmlAuth = xmlDoc.getElementsByTagName('authentication');
-                Auth_xml = xmlAuth[0];
-                dato_usuario = Auth_xml.getElementsByTagName("user")[0].firstChild.nodeValue;
-                dato_psw = Auth_xml.getElementsByTagName("password")[0].firstChild.nodeValue;
-                cargar_departamentos();
-            }
-            catch (e) {
-
-            }
+           
+                //cargar_departamentos();
+            
         });
 
         function cargar_departamentos() {
             estados_cont = 0;
-            var xmlhttp = new window.XMLHttpRequest();
-            xmlhttp.open('POST', 'http://maariv.unidadvictimas.gov.co/WSMAARIV/WS_MAARIV.asmx?wsdl', true);
-            var sr = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">' +
-                     '<soapenv:Header/>' +
-                        '<soapenv:Body>' +
-                            '<tem:consultar_departamentos>' +
-                                '<!--Optional:-->' +
-                                '<tem:id_departamento></tem:id_departamento>' +
-                                '<!--Optional:-->' +
-                                '<tem:USUARIO>' + dato_usuario + '</tem:USUARIO>' +
-                                '<!--Optional:-->' +
-                                '<tem:PASSWORD>' + dato_psw + '</tem:PASSWORD>' +
-                                '<!--Optional:-->' +
-                                '<tem:opcion>1</tem:opcion>' +
-                            '</tem:consultar_departamentos>' +
-                        '</soapenv:Body>' +
-                      '</soapenv:Envelope>';
-            xmlhttp.setRequestHeader('Content-Type', 'text/xml');
-            xmlhttp.onreadystatechange = function () {
-                estados_cont++;
-                if (xmlhttp.readyState == 4) {
-                    if (estados_cont > 1) {
-//                        try { //Internet Explorer
-//                            xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
-//                            xmlDoc.async = "false";
-//                            xmlDoc.loadXML(this.responseText);
-//                        }
-//                        catch (e) {
-//                            try { // Firefox, Mozilla, Opera, etc.
-//                                parser = new DOMParser();
-//                                xmlDoc = parser.parseFromString(this.responseText, "text/xml");
-//                            }
-//                            catch (e) {
-//                                //alert(e.message);
-//                                return;
-//                            }
-//                        }
-//                        var nodesND = xmlDoc.getElementsByTagName("consultar_departamentosResult");
-//                        var cantidadND = nodesND.length;
-
-//                        if (cantidadND == 0) {
-//                            $("#div_app_desactualizada").show();
-//                            $('#div_cargando').hide();
-//                            $('#contenido_principal').hide();
-//                        }
-//                        else {
-//                            var nodes = xmlDoc.getElementsByTagName("departamento");
-//                            var cantidad = nodes.length;
-//                            var texto_combo = "";
-//                            for (var i = 0; i < cantidad; i++) {
-//                                texto_combo += "<option value='" + xmlDoc.getElementsByTagName("id_departamento")[i].childNodes[0].nodeValue + "'>" + xmlDoc.getElementsByTagName("departamento")[i].childNodes[0].nodeValue + "</option>";
-//                            }
-//                            $("#combo_departamento").append(texto_combo);
-//                            //$("#combo_departamento").val("5");
-//                            $("#combo_departamento").selectmenu('refresh');
-//                            cargar_ciudades();
-                        //                        }
-                        $('#map-canvas').show();
-                        $('#div_sininternet').hide();
-                    }
-                    else {
-                        $('#div_sininternet').show();
-                        $('#map-canvas').hide();
-//                        $('#mensaje_sinregistros').hide();
-//                        $('#flechas_paginacion_izq').hide();
-//                        $('#flechas_paginacion_der').hide();
-                        $('#div_cargando').hide();
-                    }
-                }
-            }
-            xmlhttp.send(sr);
+            $('#div_cargando').show();
+            $("#combo_departamento").find('option').remove().end().attr("selected", "selected");
+            
+            var texto_combo = "";
+            var deptos=";";
+            var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Agricultura/insumos?$format=json";
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        crossDomain: true,
+                        success: function (data) {
+                            $.each(data, function (i, field) {
+                                var cant = field.length;
+                                var drogas = "";
+                                var cont=1;
+                                $.each(field, function (x, item) {
+                                    //alert(field[x].nombre_de_la_droga);
+                                    
+                                            
+                                            //alert(field[x].departamento);
+                                            if(deptos.indexOf(";"+field[x].departamento+";")==-1 ){
+                                                //alert("agregué");
+                                                deptos+=field[x].departamento+";";
+                                                texto_combo += "<option value='" + field[x].departamento + "'>" + field[x].departamento + "</option>";
+                                            
+                                            
+                                    }
+                                    
+                                });
+                                //alert(deptos);
+                                $("#combo_departamento").append(texto_combo);
+                                $("#combo_departamento").selectmenu('refresh');
+                                $('#div_cargando').hide();
+                                //cargar_ciudades();
+                            });
+                                
+                        },
+                        error: function (x, y, z) {
+                            if(y == "timeout"){
+                                
+                            }
+                        }, 
+                        timeout: 15000                          
+                    });
+            
+            
+               
         }
 
         function omitirAcentos(text) {
@@ -391,7 +358,7 @@
 
         function crearMapa() {
             //alert("creando");
-            cargar_departamentos();
+            //cargar_departamentos();
             markers = [];
             var Depto = document.getElementById('combo_departamento').value;
             if (Depto != null) {
@@ -441,26 +408,20 @@
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
             <a href="index.html" data-ajax="false"><i class='icon-ellipsis-vertical'></i></a>
             <h1>
-                PUNTOS DE ATENCIÓN</h1>
+                PUNTOS DE VENTA</h1>
         </div>
         <div data-role="content">
             <ul data-role="listview" data-divider-theme="b" data-icon="false" data-filter="false"
                 data-filter-theme="b" class='showastabs'>
-                <li data-role="list-divider">Puntos de Atenci&oacute;n</li>
+                <li data-role="list-divider">Puntos de venta&oacute;n</li>
             </ul>
             <div class='message info'>
                 <i class='icon-info-sign'></i>
                 <p>
-                    En esta secci&oacute;n podr&aacute; ubicar geográficamente los puntos de atención en un departamento específico.
+                    En esta secci&oacute;n podr&aacute; ubicar geográficamente los puntos de venta según los criterios seleccionados.
                 </p>
             </div>
-            <div class='message error' id="div_sininternet">
-                <i class='icon-warning-sign'></i>
-                <p>
-                    Para poder visualizar la información se requiere acceso a internet. Por favor verifique
-                    su conexión e inténtelo nuevamente.
-                </p>
-            </div>
+            
             <strong><span class="label_titulo">Seleccione el departamento:</span> </strong>
             <br />
             <select id="combo_departamento" name="combo_departamento" class="styled-select" onchange="crearMapa()">
@@ -497,12 +458,13 @@
                 <option value="Vaupes">Vaupés</option>
                 <option value="Vichada">Vichada</option>
             </select>
-            <div class='message warning' id="div_sinpuntos" style="display:none;">
-                <i class='icon-warning-sign'></i>
-                <p>
-                    No existen puntos de atención en el departamento seleccionado.
-                </p>
-            </div>
+
+             <strong><span class="label_titulo">Seleccione el tipo de insumo:</span> </strong>
+            <br />
+            <select id="combo_tipo" name="combo_tipo" class="styled-select">
+                <option value="Amazonas">Fertilizantes</option>
+            </select>
+            
             <div id="map-canvas">
             </div>
             

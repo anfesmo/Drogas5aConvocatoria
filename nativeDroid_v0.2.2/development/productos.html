@@ -1,0 +1,821 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Entidades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <!-- jQueryMobileCSS - original without styling -->
+    <link rel="stylesheet" href="css/jquerymobile.css" />
+    <!-- nativeDroid core CSS -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+    <!-- nativeDroid: Light/Dark -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.light.css" id='jQMnDTheme' />
+    <!-- nativeDroid: Color Schemes -->
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
+    <style type="text/css">
+
+        .parra_texto {
+            font-weight: 300;
+            margin: 7px 0;
+            white-space: normal;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+
+        .ui-btn-inner {
+            white-space: normal !important;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .ui-body-b .ui-collapsible-heading-toggle {
+            border-bottom-width: 0px !important;
+        }
+
+        .ui-collapsible-heading-toggle .ui-btn-text {
+            font-size: 16px !important;
+        }
+
+        .styled-button {
+            width: 60%;
+            height: 34px;
+            overflow: hidden;
+            margin: 5px;
+            background-color: #ddd;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+            -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+            box-shadow: 0 2px 0 #99cc00, 0 -1px #fff inset;
+            color: #888;
+            border: none;
+            outline: none;
+            display: inline-block;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            padding-top: 10px;
+            text-align: center;
+            opacity: 0.6;
+            margin-left: 20%;
+        }
+
+        .styled-select {
+            width: 90%;
+            height: 34px;
+            overflow: hidden;
+            background: url(imagenes/flecha_abajo.png) no-repeat right #ddd;
+            margin: 5px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+            -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+            box-shadow: 0 2px 0 #99cc00, 0 -1px #fff inset;
+            color: #888;
+            border: none;
+            outline: none;
+            display: inline-block;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        .label_titulo {
+            font-size: 18px !important;
+            color: Black;
+            font-weight: 400;
+            padding-left: 8px;
+        }
+
+        .vinculo_derecha {
+            float: right;
+            padding-right: 1%;
+        }
+
+        .vinculo_izquierda {
+            float: left;
+            padding-left: 1%;
+            display: none;
+        }
+
+        .puntero {
+            cursor: pointer;
+            color: #404040;
+            font-weight: bold;
+        }
+
+        .borde_listview {
+            color: #404040;
+            border: 2px solid rgba(0,0,0,0.2);
+            padding: 1%;
+            margin: 1% !important;
+            margin-bottom: 10px !important;
+            background-color: white;
+            cursor: default;
+            -moz-border-radius: 10px 10px 10px 10px !important;
+            -webkit-border-radius: 10px 10px 10px 10px !important;
+        }
+
+        .espacios_listview {
+            padding: 1%;
+            margin: 1%;
+        }
+
+        .texto_izq {
+            text-align: left;
+        }
+
+        .clase_cargando {
+            position: fixed;
+            background-color: #0D0D0D;
+            opacity: 0.5;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            display: none;
+        }
+
+        .icono_cargando {
+            top: 50%;
+            left: 45%;
+            position: fixed;
+        }
+
+        .ui-body-b .ui-btn-inner.ui-li, .ui-body-b .ui-li-has-thumb {
+            border-bottom: 1px solid #FF4D4D !important;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        .mensaje_actualizar {
+            top: 50%;
+        }
+
+        .ui-input-text {
+            border-bottom: none !important;
+        }
+
+        .text_buscar {
+            text-align: center;
+            width: 60% !important;
+            margin-left: 20% !important;
+            background-color: #fff !important;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-color: #e9e9e9;
+            border: 1px solid !important;
+            border-bottom: 1px solid !important;
+        }
+
+        .ui-body-b div.ui-input-text input {
+            padding-left: 0px;
+        }
+
+        .ui-footer.ui-fixed-hidden, .ui-header.ui-fixed-hidden {
+            padding: 0 !important;
+            position: fixed !important;
+        }
+    </style>
+    <!-- jQuery / jQueryMobile Scripts -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery.mobile-1.3.1.min.js"></script>
+    <script src="js/funciones.js"></script>
+    <!--<script src="js/nativedroid.script.js"></script>-->
+     <!--<script type="text/javascript" charset="utf-8" src="cordova.js"></script>-->
+    <script type="text/javascript">
+
+        var pagina_actual = 1;
+        var ultima_pagina = 1;
+        var primera_pagina = 1;
+        var numero_items = 0;
+        var dato_usuario = "";
+        var dato_psw = "";
+
+        
+
+        $(document).ready(function () {
+            $('.ui-icon.ui-icon-arrow-d.ui-icon-shadow').hide();
+     
+                cargar_departamentos();
+            
+        });
+
+        function cargar_departamentos() {
+            estados_cont = 0;
+            $('#div_cargando').show();
+            $("#combo_departamento").find('option').remove().end().attr("selected", "selected");
+            
+            var texto_combo = "";
+            var deptos=";";
+            var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Agricultura/insumos?$format=json";
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        crossDomain: true,
+                        success: function (data) {
+                            $.each(data, function (i, field) {
+                                var cant = field.length;
+                                var drogas = "";
+                                var cont=1;
+                                $.each(field, function (x, item) {
+                                    //alert(field[x].nombre_de_la_droga);
+                                    
+                                            
+                                            //alert(field[x].departamento);
+                                            if(deptos.indexOf(";"+field[x].departamento+";")==-1 ){
+                                                //alert("agregué");
+                                                deptos+=field[x].departamento+";";
+                                                texto_combo += "<option value='" + field[x].departamento + "'>" + field[x].departamento + "</option>";
+                                            
+                                            
+                                    }
+                                    
+                                });
+                                //alert(deptos);
+                                $("#combo_departamento").append(texto_combo);
+                                $("#combo_departamento").selectmenu('refresh');
+                                //$('#div_cargando').hide();
+                                cargar_ciudades();
+                            });
+                                
+                        },
+                        error: function (x, y, z) {
+                            if(y == "timeout"){
+                                
+                            }
+                        }, 
+                        timeout: 15000                          
+                    });
+            
+            
+               
+        }
+
+        function cargar_ciudades() {
+            $("#combo_municipio").find('option').remove().end().attr("selected", "selected");
+            var depto=$("#combo_departamento").val();
+            var texto_combo = "";
+            var municipios=";";
+            var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Agricultura/insumos?$filter=\"departamento\"='"+depto+"'&$format=json";
+            //alert(url);
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        crossDomain: true,
+                        success: function (data) {
+                            $.each(data, function (i, field) {
+                                var cant = field.length;
+                                var drogas = "";
+                                var cont=1;
+                                $.each(field, function (x, item) {
+                                    //alert(field[x].nombre_de_la_droga);
+                                    
+                                            
+                                            //alert(field[x].departamento);
+                                            if(municipios.indexOf(";"+field[x].municipio+";")==-1 ){
+                                                //alert("agregué");
+                                                municipios+=field[x].municipio+";";
+                                                texto_combo += "<option value='" + field[x].codmunicipio + "'>" + field[x].municipio + "</option>";
+                                            
+                                            
+                                    }
+                                    
+                                });
+                                //alert(deptos);
+                                $("#combo_municipio").append(texto_combo);
+                                $("#combo_municipio").selectmenu('refresh');
+                                $('#div_cargando').hide();
+                                //cargar_productos();
+                            });
+                                
+                        },
+                        error: function (x, y, z) {
+                            if(y == "timeout"){
+                                
+                            }
+                        }, 
+                        timeout: 15000                          
+                    });
+            
+            
+        }
+
+        function cargar_productos(){
+            $('#div_cargando').show();
+            $("#lista_entidades").html("");
+            $('#flechas_paginacion').show();
+            var depto=$("#combo_departamento").val();
+            var muni=$("#combo_municipio").val();
+            var texto_combo = "";
+            var municipios=";";
+            pagina_actual = 1;
+                ultima_pagina = 1;
+                primera_pagina = 1;
+                numero_items = 0;
+            var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Agricultura/insumos?$filter=\"departamento\"='"+depto+"'AND\"codmunicipio\"='"+muni+"'&$format=json";
+            //alert(url);
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        crossDomain: true,
+                        success: function (data) {
+                            $.each(data, function (i, field) {
+                                var cantidad = field.length;
+                                var drogas = "";
+                                var cont=1;
+                                var texto = "";
+                                cont = 0;
+                                pagina = 1;
+                                numeropp = 0;
+                                var entidades_ing = "";
+                                var texto_aux = "";
+                                $.each(field, function (x, item) {
+                                    cont++;
+                                        numeropp++;
+
+                                        texto = "<li class='borde_listview todas " + pagina + "'>" +
+                                       "<h1><strong>" + field[x].tipodeinsumo +" - $"+field[x].precio+ "</strong></h1>" +
+                                       "Tipo de producción: "+field[x].tipodeproduccion+"<br />" +
+                                       "Grupo: "+field[x].grupo+"<br />" +
+                                       "<input type='checkbox' /> Comparar" +
+                                       "<div style=\"text-align: right;\">" +
+                                       "<a style=\"color: #404040 !important;\" onclick='denunciar()'>Denunciar<a title=\" Denunciar\" class=\"icon-thumbs-down  icon-large\" style=\"margin-right: 8px !important; margin-left: 8px !important;" +
+                                       "color: #404040 !important;\" ></a>" +
+                                       
+                                      
+                                       "</div>" +
+                                       "</li>";
+
+                                        $("#lista_entidades").append(texto);
+
+                                        if (numeropp == 5) {
+                                            pagina++;
+                                            numeropp = 0;
+                                        }
+                                    
+                                });
+                                //alert(deptos);
+                                $("#lista_entidades").listview("refresh");
+                                $('div[data-role=collapsible]').collapsible({ refresh: true });
+                                $('div[data-role=navbar]').navbar({ refresh: true });
+                                if (cont % 5 == 0) {
+                                    ultima_pagina = pagina - 1;
+                                }
+                                else {
+                                    ultima_pagina = pagina;
+                                }
+
+                                numero_items = cont;
+
+
+                                $('#lista_entidades .todas').hide();
+                                $('#lista_entidades .' + primera_pagina).show();
+
+                                if (cont < 5) {
+                                    //$('#label_registros').html("Entidades 1 a " + cont + " de " + cont);
+                                }
+                                else {
+                                    //$('#label_registros').html("Entidades 1 a " + 5 * pagina_actual + " de " + cont);
+                                }
+                                $('#flechas_paginacion_izq').hide();
+                                if (ultima_pagina < 2) {
+
+                                    $('#flechas_paginacion_der').hide();
+                                }
+                                else {
+                                    $('#flechas_paginacion_der').show();
+                                }
+                                $('#div_cargando').hide();
+                            });
+                                
+                        },
+                        error: function (x, y, z) {
+                            if(y == "timeout"){
+                                
+                            }
+                        }, 
+                        timeout: 15000                          
+                    });
+        }
+
+function denunciar(){
+        document.location.href="Denuncia.html";
+    }
+    
+        function cargar_entidades() {
+            //Cambio de color al boton para determinar que se esta ejecutando una acción
+            cambiarColor("inicio");
+            $('#div_cargando').show();
+            $("#lista_entidades").html("");
+            $("#label_registros").css("display", "none");
+            $('#flechas_paginacion').hide();
+            $('#mensaje_sincriterio').hide();
+            var palabra_clave = $("#txt_palabra").val();
+            if ($("#combo_departamento").val() != "0" || palabra_clave != "") {
+                pagina_actual = 1;
+                ultima_pagina = 1;
+                primera_pagina = 1;
+                numero_items = 0;
+                var xmlhttp = new window.XMLHttpRequest();
+                xmlhttp.open('POST', 'http://maariv.unidadvictimas.gov.co/WSMAARIV/WS_MAARIV.asmx?wsdl', true);
+                var sr = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">' +
+                         '<soapenv:Header/>' +
+                            '<soapenv:Body>' +
+                                '<tem:consultar_entidades>' +
+                                    '<!--Optional:-->' +
+                                    '<tem:id_departamento>' + $("#combo_departamento").val() + '</tem:id_departamento>' +
+                                    '<!--Optional:-->' +
+                                    '<tem:id_municipio>' + $("#combo_municipio").val() + '</tem:id_municipio>' +
+                                    '<!--Optional:-->' +
+                                    '<tem:id_entidad></tem:id_entidad>' +
+                                    '<!--Optional:-->' +
+                                    '<tem:entidad></tem:entidad>' +
+                                    '<!--Optional:-->' +
+                                    '<tem:USUARIO>' + dato_usuario + '</tem:USUARIO>' +
+                                    '<!--Optional:-->' +
+                                    '<tem:PASSWORD>' + dato_psw + '</tem:PASSWORD>' +
+                                    '<!--Optional:-->' +
+                                    '<tem:opcion>1</tem:opcion>' +
+                                '</tem:consultar_entidades>' +
+                            '</soapenv:Body>' +
+                          '</soapenv:Envelope>';
+
+                xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4) {
+
+                        try { //Internet Explorer
+                            xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+                            xmlDoc.async = "false";
+                            xmlDoc.loadXML(this.responseText);
+                        }
+                        catch (e) {
+                            try { // Firefox, Mozilla, Opera, etc.
+                                parser = new DOMParser();
+                                xmlDoc = parser.parseFromString(this.responseText, "text/xml");
+                            }
+                            catch (e) {
+                                //alert(e.message);
+                                return;
+                            }
+                        }
+
+                        var nodes = xmlDoc.getElementsByTagName("ID_ENTIDAD");
+                        var cantidad = nodes.length;
+                        
+                        var texto = "";
+                        cont = 0;
+                        pagina = 1;
+                        numeropp = 0;
+                        var entidades_ing = "";
+                        var texto_aux = "";
+
+                        for (var i = 0; i < cantidad; i++) {
+                            if (palabra_clave != "") {
+                                if (xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i] != null && xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes.length > 0) {
+                                    texto_aux = xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes[0].nodeValue;
+                                    if (texto_aux.toLowerCase().indexOf(palabra_clave.toLowerCase()) != -1) {
+                                        if (xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i] != null) {
+                                            var num = xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes.length;
+                                            if (num > 0) {
+                                                if (entidades_ing.indexOf("-" + xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes[0].nodeValue + "-") == -1) {
+                                                    cont++;
+                                                    numeropp++;
+
+                                                    texto = "<li class='borde_listview todas " + pagina + "'>" +
+                                                   "<h1>" + xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes[0].nodeValue + "</h1>" +
+                                                   "<a onclick='consultarProgramas(\"" + xmlDoc.getElementsByTagName('NOMBRE_ENTIDAD')[i].childNodes[0].nodeValue + "\");' class='ui-link puntero' >Ver programas</a>" +
+                                                   "<div style=\"text-align: right;\">" +
+                                                   "<a style=\"color: #404040 !important;\" onclick='abrirFacebookProgramas()'>facebook<a title=\"Compartir Facebook\" class=\"icon-facebook-sign icon-large\" style=\"margin-right: 8px !important; margin-left: 8px !important;" +
+                                                   "color: #404040 !important;\" ></a>" +
+                                                   "</a><a style=\"color: #404040 !important;\" onclick='abrirTwitterProgramas(\"" + xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes[0].nodeValue + "\")'>twitter<a target=\"_blank\" title=\"Compartir Twitter\" class=\"icon-twitter icon-large\" style=\"margin-right: 8px !important; margin-left: 8px !important;" +
+                                                   "color: #404040 !important;\" ></a>" +
+                                                   "</a>" +
+                                                   "</div>" +
+                                                   "</li>";
+
+                                                    $("#lista_entidades").append(texto);
+
+                                                    if (numeropp == 5) {
+                                                        pagina++;
+                                                        numeropp = 0;
+                                                    }
+                                                    entidades_ing += "-" + xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes[0].nodeValue + "-";
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else {
+                                if (xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i] != null) {
+                                    var num = xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes.length;
+                                    if (num > 0) {
+                                        if (entidades_ing.indexOf("-" + xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes[0].nodeValue + "-") == -1) {
+                                            cont++;
+                                            numeropp++;
+
+                                            texto = "<li class='borde_listview todas " + pagina + "'>" +
+                                           "<h1>" + xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes[0].nodeValue + "</h1>" +
+                                           "<a onclick='consultarProgramas(\"" + xmlDoc.getElementsByTagName('NOMBRE_ENTIDAD')[i].childNodes[0].nodeValue + "\");' class='ui-link puntero' >Ver programas</a>" +
+                                           "<div style=\"text-align: right;\">" +
+                                           "<a style=\"color: #404040 !important;\" onclick='abrirFacebookProgramas()'>facebook<a title=\"Compartir Facebook\" class=\"icon-facebook-sign icon-large\" style=\"margin-right: 8px !important; margin-left: 8px !important;" +
+                                           "color: #404040 !important;\" ></a>" +
+                                           "</a><a style=\"color: #404040 !important;\" onclick='abrirTwitterProgramas(\"" + xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes[0].nodeValue + "\")'>twitter<a target=\"_blank\" title=\"Compartir Twitter\" class=\"icon-twitter icon-large\" style=\"margin-right: 8px !important; margin-left: 8px !important;" +
+                                           "color: #404040 !important;\" ></a>" +
+                                           "</a>" +
+                                           "</div>" +
+                                           "</li>";
+
+                                            $("#lista_entidades").append(texto);
+
+                                            if (numeropp == 5) {
+                                                pagina++;
+                                                numeropp = 0;
+                                            }
+                                            entidades_ing += "-" + xmlDoc.getElementsByTagName("NOMBRE_ENTIDAD")[i].childNodes[0].nodeValue + "-";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        $("#lista_entidades").listview("refresh");
+                        $('div[data-role=collapsible]').collapsible({ refresh: true });
+                        $('div[data-role=navbar]').navbar({ refresh: true });
+                        if (cont % 5 == 0) {
+                            ultima_pagina = pagina - 1;
+                        }
+                        else {
+                            ultima_pagina = pagina;
+                        }
+
+                        numero_items = cont;
+
+
+                        $('#lista_entidades .todas').hide();
+                        $('#lista_entidades .' + primera_pagina).show();
+
+                        if (cont < 5) {
+                            $('#label_registros').html("Entidades 1 a " + cont + " de " + cont);
+                        }
+                        else {
+                            $('#label_registros').html("Entidades 1 a " + 5 * pagina_actual + " de " + cont);
+                        }
+                        $('#flechas_paginacion_izq').hide();
+                        if (ultima_pagina < 2) {
+
+                            $('#flechas_paginacion_der').hide();
+                        }
+                        else {
+                            $('#flechas_paginacion_der').show();
+                        }
+                        if (cont == 0) {
+                            $('#mensaje_sinregistros').show();
+                            $('#flechas_paginacion').hide();
+                            $("#label_registros").css("display", "none");
+                        }
+                        else {
+                            $('#mensaje_sinregistros').hide();
+                            $('#flechas_paginacion').show();
+                            $("#label_registros").css("display", "block");
+                        }
+                        $('#div_cargando').hide();
+                        cambiarColor("fin");
+                    }
+                }
+                xmlhttp.send(sr);
+            }
+            else
+            {
+                $('#mensaje_sincriterio').show();
+                $('#div_cargando').hide();
+                cambiarColor("fin");
+            }
+        }
+
+        function omitirAcentos(text) {
+            var acentos = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç";
+            var original = "AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc";
+            for (var i = 0; i < acentos.length; i++) {
+                if (text != null) {
+                    text = text.replace(acentos.charAt(i), original.charAt(i));
+                }
+            }
+            return text;
+        }
+
+        function consultarProgramas(entidad) {
+            localStorage.setItem("nombre_entidad", entidad);
+            localStorage.setItem("nombre_departamento", $("#combo_departamento option:selected").text());
+            localStorage.setItem("nombre_municipio", $("#combo_municipio option:selected").text());
+
+            window.location.href = "convocatorias_entidad.html";
+        }
+
+        function paginarSiguiente() {
+            if (pagina_actual != ultima_pagina) {
+                $('#lista_entidades .todas').hide();
+                pagina_actual = pagina_actual + 1;
+                $('#lista_entidades .' + pagina_actual).show();
+                if (pagina_actual == ultima_pagina) {
+                    $('#flechas_paginacion_der').hide();
+                    $('#flechas_paginacion_izq').show();
+                }
+                else {
+                    $('#flechas_paginacion_der').show();
+                    $('#flechas_paginacion_izq').show();
+                }
+                items_pagina = (5 * (pagina_actual - 1)) + 1;
+                if (pagina_actual == ultima_pagina) {
+                    items_final = numero_items;
+                }
+                else {
+                    items_final = 5 * pagina_actual;
+                }
+                //$('#label_registros').html("Entidades " + items_pagina + " a " + items_final + " de " + cont);
+            }
+        }
+
+        function paginarAnterior() {
+            if (pagina_actual != primera_pagina) {
+                $('#lista_entidades .todas').hide();
+                pagina_actual = pagina_actual - 1;
+                $('#lista_entidades .' + pagina_actual).show();
+                items_pagina = (5 * (pagina_actual - 1)) + 1;
+                if (pagina_actual == primera_pagina) {
+                    $('#flechas_paginacion_izq').hide();
+                    $('#flechas_paginacion_der').show();
+                }
+                else {
+                    $('#flechas_paginacion_izq').show();
+                    $('#flechas_paginacion_der').show();
+                }
+                if (pagina_actual == 1) {
+                    items_final = 5;
+                }
+                else {
+                    items_final = 5 * pagina_actual;
+                }
+                //$('#label_registros').html("Entidades " + items_pagina + " a " + items_final + " de " + cont);
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div class="clase_cargando" id="div_cargando">
+        <img src="imagenes/loader.gif" class="icono_cargando">
+    </div>
+    <div class="clase_cargando oculto" id="div_app_desactualizada">
+        <div class='message error mensaje_actualizar' id="div1">
+            <i class='icon-warning-sign'></i>
+            <p>
+                Para continuar es necesario actualizar la aplicación
+            </p>
+        </div>
+    </div>
+    <div data-role="page" data-theme='b'>
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="index.html" data-ajax="false"><i class='icon-ellipsis-vertical'></i></a>
+            <h1>Consultar precios</h1>
+        </div>
+        <div data-role="content" id="contenido_principal">
+            <ul data-role="listview" data-divider-theme="b" data-icon="false" data-filter="false"
+                data-filter-theme="b" class='showastabs'>
+                <li data-role="list-divider">Consulta y comparación de precios</li>
+            </ul>
+            <div class='message info'>
+                <i class='icon-info-sign'></i>
+                <p>
+                    En esta secci&oacute;n podr&aacute; ver el listado de productos con sus precios filtrados por departamento y municipio
+                </p>
+            </div>
+            
+            <strong>
+                <span class="label_titulo">Seleccione
+                    el departamento:</span>
+            </strong>
+            <br />
+            <select class="styled-select" id="combo_departamento" name="combo_departamento" onchange="cargar_ciudades()">
+            </select>
+            <strong>
+                <span class="label_titulo">Seleccione
+                    la ciudad:</span>
+            </strong>
+            <br />
+            <select class="styled-select" id="combo_municipio" name="combo_municipio">
+            </select>
+            
+            <strong>
+                <input type="button" class="styled-button" value="Consultar" id="btnConsulta" onclick="cargar_productos()" />
+            </strong>
+
+             <strong>
+                <input type="button" class="styled-button" value="Comparar" id="btnComparar" onclick="comparar()" />
+            </strong>
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b" id="lista_entidades" class="espacios_listview">
+            </ul>
+            <div class='message warning oculto' id="mensaje_sinregistros">
+                <i class='icon-info-sign'></i>
+                <p>
+                    Los datos seleccionados no tienen entidades asociadas
+                </p>
+            </div>
+            <div class='message warning oculto' id="mensaje_sincriterio">
+                <i class='icon-info-sign'></i>
+                <p>
+                    Debe seleccionar un departamento o ingresar una palabra clave
+                </p>
+            </div>
+            
+            <div class="center-text">
+                <label id="label_registros" style="text-align: center;">
+                </label>
+            </div>
+            <div id="flechas_paginacion" class="">
+                <a href="#" onclick="paginarAnterior()" class="vinculo_izquierda"
+                    id="flechas_paginacion_izq">< Anterior</a>
+                <a href="#" onclick="paginarSiguiente()" class="vinculo_derecha"
+                    id="flechas_paginacion_der">Siguiente ></a>
+            </div>
+            <br />
+            <br />
+            <div data-position="fixed" data-tap-toggle="false" data-role="footer" data-tap-toggle="false"
+                data-theme='b'>
+                <div data-role="navbar">
+                    <ul>
+                        <li style="height:48px; padding-left:0.5%; padding-top:11px; border-right:none !important;"><strong>S&iacute;guenos: </strong></li>
+                    
+                        <li><a href="#" onclick="abrirFacebook()" data-icon="facebook"></a></li>
+                        <li><a href="#" onclick="abrirTwitter()" data-icon="twitter"></a></li>
+                        <li><a href="#" onclick="abrirYoutube()" data-icon="youtube"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function abrirFacebook ()
+        {
+            window.open("https://www.facebook.com/unidadvictimas", "_blank", "closebuttoncaption=Regresar");
+        }
+    
+    function abrirTwitter ()
+    {
+        window.open("https://twitter.com/UnidadVictimas", "_blank", "closebuttoncaption=Regresar");
+    }
+    
+    function abrirYoutube ()
+    {
+        window.open("http://www.youtube.com/user/UPARIV", "_blank", "closebuttoncaption=Regresar");
+    }
+
+    function abrirFacebookProgramas() {
+        
+        window.open("http://www.facebook.com/share.php?u=https://www.facebook.com/unidadvictimas&title=Unidad", "_blank", "closebuttoncaption=Regresar");
+        
+    }
+    
+    function abrirTwitterProgramas(nombreEntidad) {
+        
+        nombreEntidad = omitirAcentos(nombreEntidad);
+        window.open("http://twitter.com/home?status= He visto la entidad "+nombreEntidad+", de seguro puede interesarte http://www.unidadvictimas.gov.co/", "_blank", "closebuttoncaption=Regresar");
+        
+    }
+
+    function comparar(){
+        document.location.href="Comparar.html"
+    }
+
+    //@param accion: determina si es cambio de color al presionar el botón o para restaurar despues de terminar la acción
+    function cambiarColor (accion) 
+    {
+        if (accion === "inicio") 
+        {
+            $("#btnConsulta").css('background-color', '#7F0000');      
+        } 
+        else if (accion === "fin") 
+        {
+            $("#btnConsulta").css('background-color', '#ddd');      
+        }
+    }
+    </script>
+</body>
+</html>
