@@ -465,7 +465,7 @@ body {
 }
 
 .deploy-contact{
-	background-image:url(../images/misc/deploy-mail.png);
+	background-image:url(../images/icons/commerce/shoppingbasket2.png);
 	background-size:18px 12px;
 	background-repeat:no-repeat;
 	background-position:18px 18px;
@@ -822,18 +822,25 @@ body {
 	margin-bottom:2px;
 }
 
-.home-drugs{
-	background-image:url(../images/icons/misc/chemical.png);
+.home-sites{
+	background-image:url(../images/icons/display/frames.png);
 }
 
-.home-bandaid{
-	background-image:url(../images/icons/misc/bandaid.png);
+.home-locales{
+	background-image:url(../images/icons/location/mapsgoogle.png);
+}
+
+.home-compras{
+	background-image:url(../images/icons/commerce/shoppingbasket.png);
 }
 
 .home-faqs{
-	background-image:url(../images/icons/display/listimage.png);
+	background-image:url(../images/icons/communication/speechbubble2.png);
 }
 
+.home-noticias{
+	background-image:url(../images/icons/communication/incoming.png);
+}
 .home-info-about{
 	background-image:url(../images/icons/misc/infoabout.png);
 }
