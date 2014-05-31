@@ -272,7 +272,7 @@
 
                         $.each(field, function (x, item) {
                             if (localStorage["MisProductos"].indexOf(field[x].producto) != -1) {
-                                texto += '<div class="container todas ' + pagina + ' >' +
+                                texto += '<div class="container todas ' + pagina + ' ">' +
                                                     '<div class="toggle-2">' +
                                                         '<a href="#" class="deploy-toggle-2">' + field[x].producto + ' - ' + field[x].preciocalidadextra + '</a>' +
 
@@ -416,7 +416,7 @@
         }
 
         $(document).ready(function () {
-            localStorage["MisProductos"] = "ACELGA,CALABACIN,COLIFLOR";
+            //localStorage["MisProductos"] = "ACELGA,CALABACIN,COLIFLOR";
             cargar_listaDrogas();
         });
                 

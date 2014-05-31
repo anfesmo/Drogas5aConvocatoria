@@ -162,8 +162,9 @@
             <div class="gallery-images" id="gallery-images">
                 <div class="decoration"></div>   
                 <br>    
-                    <a href="#" onclick="pagSiguiente()" class="next-quote" style="height:100%;"></a>
-                    <a href="#" onclick="pagAnterior()" class="prev-quote" style="height:100%;"></a>
+                    
+                   <input type="button" class="next-quote button-dark" value=">" style="background-image:none; color:white; height:20px; width:20px;" onclick="pagSiguiente()" />
+                    <input type="button" class="prev-quote button-dark" value="<" style="background-image:none; color:white; height:20px; width:20px;" onclick="pagAnterior()" />
                     <div id="listaProductos" class="quote-slider" data-snap-ignore="true">
                         
                         <div>
@@ -277,7 +278,7 @@ function cargarImagenes()
                                                                 '<h4><strong>Unidad:</strong>'+field[x].unidad+'</h4>'+
                                                                 '<h4><strong>Precio extra:</strong>'+field[x].preciocalidadextra+'</h4>'+
                                                                 '<h4><strong>Precio calidad primera:</strong>'+field[x].preciocalidadprimera+'</h4>'+
-                                                            '</div>'+
+                                                            '<br /><h4><input type="button" onclick="agregarProducto(\''+field[x].producto+'\')" class="button-big button-green" value="Agregar a la lista" /></h4></div>'+
                                                         '</div></div>';
                                                         cont++;
                                             }
@@ -301,8 +302,13 @@ function cargarImagenes()
                     });
                 }
 
+                function agregarProducto(prod){
+                    localStorage.setItem("MisProductos", localStorage.getItem("MisProductos")+","+prod);
+                    alert("El producto se ha agregado a su lista personal");
+                }
+
                 $(document).ready(function () {
-                    
+                    localStorage.setItem("MisProductos","");
                   cargar_listaProductos();
                 });
                 
