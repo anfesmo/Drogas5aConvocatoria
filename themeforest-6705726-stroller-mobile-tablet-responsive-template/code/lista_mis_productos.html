@@ -208,8 +208,8 @@
                             if (localStorage["MisProductos"].indexOf("," + field[x].producto + ",") != -1) {
                                 texto += '<div class="container todas ' + pagina + ' ">' +
                                                     '<div class="toggle-2">' +
-                                                        '<a href="#" class="deploy-toggle-2">' + field[x].producto + ' - ' + field[x].preciocalidadextra + '</a>' +
-                                                        '<p style=\'margin-left: 20px; margin-bottom: 10px;\'><strong style=\'float: left;\'>(' + field[x].unidad + ' - ' + field[x].cantidad + ')&nbsp;&nbsp;&nbspCantidad:&nbsp;&nbsp;&nbsp;</strong><input type=\'text\' style=\'margin-left: 20px; width: 30px;\' /></p>' +
+                                                        '<a href=\'#\' class=\'button-icon icon-trash button-turqoise\' style=\'float: right; margin: 5px;\'></a><a href="#" class="deploy-toggle-2">' + field[x].producto + ' - ' + field[x].preciocalidadextra + '</a>' +
+                                                        '<p style=\'margin-left: 20px; margin-bottom: 10px;\'><strong style=\'float: left;\'>(' + field[x].unidad + ' - ' + field[x].cantidad + ')&nbsp;&nbsp;&nbspCantidad:&nbsp;&nbsp;&nbsp;</strong><input type=\'text\' style=\'margin-left: 20px; width: 30px; text-align: right;\' value=\'1\' /></p>' +
                                                         '<div class="toggle-content">' +
                                                             '<p>' +
                                                             '<strong>Tipo de Producto: </strong> ' + field[x].tipoproducto + '  ' +
@@ -250,8 +250,8 @@
                             }
                         });
                         $("#lista_Drogas").html(texto);
-                        $("#label_total_extra").html("Total compra calidad extra: " + totalPedidoEsxtra);
-                        $("#label_total_primera").html("Total compra calidad de primera: " + totalPedidoPrimera);
+                        $("#label_total_extra").html("Total compra calidad extra: $ " + formato_numero(totalPedidoEsxtra, 2, ",", "."));
+                        $("#label_total_primera").html("Total compra calidad de primera: $ " + formato_numero(totalPedidoPrimera, 2, ",", "."));
                         if (cont % 5 == 0) {
                             ultima_pagina = pagina - 1;
                         }
@@ -353,6 +353,31 @@
                 }
                 $('#label_registros').html("Productos " + items_pagina + " a " + items_final + " de " + cont);
             }
+        }
+
+        function formato_numero(numero, decimales, separador_decimal, separador_miles) { // v2007-08-06
+            numero = parseFloat(numero);
+            if (isNaN(numero)) {
+                return "";
+            }
+
+            if (decimales !== undefined) {
+                // Redondeamos
+                numero = numero.toFixed(decimales);
+            }
+
+            // Convertimos el punto en separador_decimal
+            numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ",");
+
+            if (separador_miles) {
+                // Añadimos los separadores de miles
+                var miles = new RegExp("(-?[0-9]+)([0-9]{3})");
+                while (miles.test(numero)) {
+                    numero = numero.replace(miles, "$1" + separador_miles + "$2");
+                }
+            }
+
+            return numero;
         }
 
         $(document).ready(function () {
