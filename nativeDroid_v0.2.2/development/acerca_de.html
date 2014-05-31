@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Acerca de</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        
+        <!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+
+        <!-- jQueryMobileCSS - original without styling -->
+        <link rel="stylesheet" href="css/jquerymobile.css" />
+
+        <!-- nativeDroid core CSS -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+
+        <!-- nativeDroid: Light/Dark -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.light.css"  id='jQMnDTheme' />
+
+         <!-- nativeDroid: Color Schemes -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.red.css" id='jQMnDColor' />
+
+        <!-- jQuery / jQueryMobile Scripts -->
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.mobile-1.3.1.min.js"></script>
+        <!--<script type="text/javascript" charset="utf-8" src="cordova.js"></script>-->
+        <style>
+            .titulos 
+            {
+                padding-top: 20px;
+            }   
+
+			.centrado{
+				text-align: center;
+				margin-bottom: 0;
+				margin-top:3px;
+			}
+			.centrado p{
+				margin-bottom: 0;
+				margin-top:3px;
+			}
+			
+			.centrado h2{
+				margin-bottom: 0;
+			}
+			
+			#apoyo{
+				margin-bottom: 9px;
+			}
+			
+			.pie-acerca{
+				font-size: 14px;
+			}
+					
+        </style>
+    </head>
+    <body>
+        
+    <div data-role="page" data-theme='b'>
+
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="index.html" data-ajax="false"><i class='icon-ellipsis-vertical'></i></a>
+            <h1>Acerca de</h1>
+        </div>
+        
+        <div data-role="content">   
+
+        <ul data-role="listview" data-divider-theme="b" data-icon="false" data-filter="false" data-filter-theme="b" class='showastabs'>
+            <li data-role="list-divider">Informaci&oacute;n de la aplicaci&oacute;n</li>
+          <!--  <li><a href="index.html"><i class='icon-chevron-left'></i> Regresar</a></li>-->
+        </ul>
+        
+          <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b" id="listadoProgramas">
+          </ul>
+
+            <div data-position="fixed" data-tap-toggle="false" data-role="footer" data-tap-toggle="false"
+                data-theme='b'>
+                <div data-role="navbar">
+                    <ul>
+						<li style="height:48px; padding-left:0.5%; padding-top:11px; border-right:none !important;"><strong>S&iacute;guenos: </strong></li>
+                        <li><a href="#" onclick="abrirFacebook()" data-icon="facebook"></a></li>
+                        <li><a href="#" onclick="abrirTwitter()" data-icon="twitter"></a></li>
+                        <li><a href="#" onclick="abrirYoutube()" data-icon="youtube"></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        <div class="inset centrado">
+            <h2>Oferta Institucional</h2>           
+            <p >Versi&oacute;n 1.0</p><br/>
+			<img width="20%" src="imagenes/oferta_logo1.png" alt="Oferta">
+            <h2>Desarrollado por</h2>
+            <p >Alexandra Espinosa Mej&iacute;a</p>
+			<p>Andr&eacute;s Felipe Escobar Morales</p>
+			<p>John Eduard L&oacute;pez</p>
+            <p>Steven Mu&ntilde;oz</p>
+			
+            <h2 id="apoyo">Con el apoyo de</h2>
+			<img width="50%" src="imagenes/mintic.png" alt="MinTic">
+			<img width="50%" src="imagenes/unidadlogo.png" alt="UARIV">
+			<hr>
+            <p class="pie-acerca">El uso de esta aplicaci&oacute;n consume datos del dispositivo m&oacute;vil</p>
+				<p class="pie-acerca">Informaci&oacute;n suministrada por MAARIV</p>
+			<p class="pie-acerca">Todos los derechos reservados - 2013</p>
+			<p class="pie-acerca">Aplicación bajo licencia GNU GPL</p>
+        </div>
+    </div>
+        <script>
+            function abrirFacebook ()
+            {
+                window.open("https://www.facebook.com/unidadvictimas", "_blank", "closebuttoncaption=Regresar");
+            }
+        
+        function abrirTwitter ()
+        {
+            window.open("https://twitter.com/UnidadVictimas", "_blank", "closebuttoncaption=Regresar");
+        }
+        
+        function abrirYoutube ()
+        {
+            window.open("http://www.youtube.com/user/UPARIV", "_blank", "closebuttoncaption=Regresar");
+        }
+        </script>
+
+    </body>
+</html>
