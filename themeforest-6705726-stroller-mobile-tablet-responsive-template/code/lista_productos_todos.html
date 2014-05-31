@@ -158,10 +158,11 @@
                     </div>  
                 </div> 
             </div> 
- <div class="formFieldWrap">
-                                    <label class="field-title contactNameField" for="contactNameField">Buscar producto:</label>
-                                    <input type="text" name="contactNameField" value="" class="contactField" id="contactNameField"/>
-                                </div>
+            <div class="formFieldWrap">
+                <label class="field-title contactNameField" for="contactNameField">Buscar producto:</label>
+                <input type="text" name="contactNameField" value="" class="contactField" id="contactNameField"/>
+                <a href="#" onclick="Buscar()" class="button-big button-dark">Buscar</a>
+            </div>
             <div class="gallery-images" id="gallery-images">
                 <div class="decoration"></div>   
                 <br>    
@@ -227,6 +228,58 @@
 <script type="text/javascript">
 var pagActual=1;
 var pagMaxima=1;
+
+function Buscar(){
+    var palabraBuscar= $('#contactNameField').val();
+    var texto = "";
+                    var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/corabastos/boletinprecios?$format=json";
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        crossDomain: true,
+                        success: function (data) {
+                            $.each(data, function (i, field) {
+                                var cant = field.length;
+                                var drogas = "";
+                                var cont=1;
+                                $.each(field, function (x, item) {
+                                    //alert(field[x].nombre_de_la_droga);
+                                    if(field[x].producto.toLowerCase().indexOf(palabraBuscar.toLowerCase())!=-1 ){
+                                            
+                                                texto+='<div class="owl-item todas '+cont+'" style="width:100%;"><div><div class="quote-item">'+
+                                                                '<img src="images/drugs/agricola.jpg" alt="img">'+
+                                                                '<h4><strong>Producto:</strong>'+field[x].producto+'</h4>'+
+                                                                '<h4><strong>Tipo producto:</strong>'+field[x].tipoproducto+'</h4>'+
+                                                                '<h4><strong>Presentación:</strong>'+field[x].presentacion+'</h4>'+
+                                                                '<h4><strong>Cantidad:</strong>'+field[x].cantidad+'</h4>'+
+                                                                '<h4><strong>Unidad:</strong>'+field[x].unidad+'</h4>'+
+                                                                '<h4><strong>Precio extra:</strong>'+field[x].preciocalidadextra+'</h4>'+
+                                                                '<h4><strong>Precio calidad primera:</strong>'+field[x].preciocalidadprimera+'</h4>'+
+                                                            '<br /><h4><input type="button" onclick="agregarProducto(\''+field[x].producto+'\')" class="button-big button-green" value="Agregar a la lista" /></h4></div>'+
+                                                        '</div></div>';
+                                                        cont++;
+                                     }
+                                    
+                                });
+                                $("#listaProductos").html(texto);
+                                pagMaxima=cont--;
+                                pagActual=1;
+                                $('#listaProductos .todas').hide();
+                                $('#listaProductos .1').show();
+
+                            });
+                                
+                        },
+                        error: function (x, y, z) {
+                            if(y == "timeout"){
+                                
+                            }
+                        }, 
+                        timeout: 15000                          
+                    });
+
+}
 
 function pagSiguiente(){
         if(pagActual+1<pagMaxima){
