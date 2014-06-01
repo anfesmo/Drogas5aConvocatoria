@@ -159,13 +159,16 @@
                 </div>
                 <br />
                 <div class="center-text">
+                    <a href="#" class="button-icon icon-setting button-green" onclick="calcular();">Calcular</a>
+                </div>
+                <div class="center-text">
                     <label id="label_total_extra" style="text-align: center;">
                     </label>
                 </div>
-                <br />
                 <div class="center-text">
                     <label id="label_total_primera" style="text-align: center;">
                     </label>
+                    <input type="hidden" id="numeros_productos" />
                 </div>
                 <div class="decoration">
                 </div>
@@ -182,7 +185,93 @@
         </div>
     </div>
     <script type="text/javascript">
+        var text2 = "";
+        function restarTotal(contador) {
+            $("#numeros_productos").val($("#numeros_productos").val().replace(contador + ",", ""));
+            $("#produc" + contador).remove();
+            localStorage["MisProductos"] = "ACELGA,CALABACIN,COLIFLOR";
+            cont--;
+            numero_items--;
+            $('#lista_Drogas .' + pagina_actual).show();
+            if (pagina_actual == ultima_pagina) {
+                $('#flechas_paginacion_der').hide();
+                $('#flechas_paginacion_izq').show();
+            }
+            else {
+                $('#flechas_paginacion_der').show();
+                $('#flechas_paginacion_izq').show();
+            }
+            items_pagina = (5 * (pagina_actual - 1)) + 1;
+            if (pagina_actual == ultima_pagina) {
+                items_final = numero_items;
+            }
+            else {
+                items_final = 5 * pagina_actual;
+            }
+            $('#label_registros').html("Productos " + items_pagina + " a " + items_final + " de " + cont);
+            calcular();
+        }
+
+        function calcular() {
+            var nums = $("#numeros_productos").val().split(",");
+            totalPedidoExtra = 0;
+            totalPedidoPrimera = 0;
+            precio = 0;
+            for (var i = 0; i < nums.length; i++)
+            {
+                if ((i + ",").indexOf($("#numeros_productos").val())) {
+                    if ($("#primera_" + i).val() != undefined) {
+                        totalPedidoExtra = totalPedidoExtra + (parseFloat($("#primera_" + i).val().replace(".", "")) * $("#cantidad_" + i).val());
+                        totalPedidoPrimera = totalPedidoPrimera + (parseFloat($("#extra_" + i).val().toString().replace(".", "")) * $("#cantidad_" + i).val());
+                    }
+                }
+            }
+            $("#label_total_extra").html("Total compra calidad extra: $ " + formato_numero(totalPedidoExtra, 2, ",", "."));
+            $("#label_total_primera").html("Total compra calidad de primera: $ " + formato_numero(totalPedidoPrimera, 2, ",", "."));
+        }
+
+        function cargar_listaDrogasFiltrado(tipoGrano) {
+            var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/corabastos/locales?$filter=\"comercializacion\"='" + tipoGrano + "'&$format=json";
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'jsonp',
+                crossDomain: true,
+                success: function (data) {
+                    $.each(data, function (i, field) {
+                        $.each(field, function (x, item) {
+                            text2 += field[x].codigolocal + ",";
+                            return text2;
+                        });
+                    });
+                },
+                error: function (x, y, z) {
+                    if (y == "timeout") {
+
+                    }
+                }
+            });
+        }
+
         function cargar_listaDrogas() {
+            var granos = new Array(10)
+            granos[0] = "Bodega 1 - Local 001";
+            granos[1] = "Bodega 5 - Local 031";
+            granos[2] = "Bodega 8 - Local 040";
+            granos[3] = "Bodega 10 - Local 001";
+            granos[4] = "Bodega 16 - Local 014";
+
+            var hortalizas = new Array(10)
+            hortalizas[0] = "Bodega 26 - Local 009";
+            hortalizas[1] = "Bodega 18 - Local 012";
+            hortalizas[2] = "Bodega 26 - Local 022";
+
+            var frutas = new Array(10)
+            frutas[0] = "Bodega 29 - Local 001";
+            frutas[1] = "Bodega 29 - Local 034";
+            frutas[2] = "Bodega 30 - Local 002";
+
+            var text2 = "";
             var texto = "";
             cont = 0;
             pagina = 1;
@@ -190,7 +279,8 @@
             pagina_actual = 1;
             ultima_pagina = 1;
             primera_pagina = 1;
-            var totalPedidoEsxtra = 0;
+            var contador = 1;
+            var totalPedidoExtra = 0;
             var totalPedidoPrimera = 0;
             var texto_aux = "";
             var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/corabastos/boletinprecios?$format=json";
@@ -203,13 +293,12 @@
                     $.each(data, function (i, field) {
                         var cant = field.length;
                         var drogas = "";
-
                         $.each(field, function (x, item) {
                             if (localStorage["MisProductos"].indexOf("," + field[x].producto + ",") != -1) {
-                                texto += '<div class="container todas ' + pagina + ' ">' +
+                                texto += '<div id=\'produc' + cont + '\' class="container todas ' + pagina + ' ">' +
                                                     '<div class="toggle-2">' +
-                                                        '<a href=\'#\' class=\'button-icon icon-trash button-turqoise\' style=\'float: right; margin: 5px;\'></a><a href="#" class="deploy-toggle-2">' + field[x].producto + ' - ' + field[x].preciocalidadextra + '</a>' +
-                                                        '<p style=\'margin-left: 20px; margin-bottom: 10px;\'><strong style=\'float: left;\'>(' + field[x].unidad + ' - ' + field[x].cantidad + ')&nbsp;&nbsp;&nbspCantidad:&nbsp;&nbsp;&nbsp;</strong><input type=\'text\' style=\'margin-left: 20px; width: 30px; text-align: right;\' value=\'1\' /></p>' +
+                                                        '<a href=\'#\' class=\'button-icon icon-trash button-red\' onclick=\'restarTotal(' + cont + ')\' style=\'float: right; margin: 5px; height: 32px; z-index: 999\'></a><a href="#" class="deploy-toggle-2">' + field[x].producto + ' - ' + field[x].preciocalidadextra + '</a>' +
+                                                        '<p style=\'margin-left: 20px; margin-bottom: 10px;\'><strong style=\'float: left;\'>(' + field[x].unidad + ' - ' + field[x].cantidad + ')&nbsp;&nbsp;&nbspCantidad:&nbsp;&nbsp;&nbsp;</strong><input id=\'cantidad_' + cont + '\' type=\'text\' style=\'margin-left: 20px; width: 30px; text-align: right;\' value=\'1\' /><input id=\'extra_' + cont + '\' type=\'hidden\' style=\'margin-left: 20px; width: 30px; text-align: right;\' value=\'' + field[x].preciocalidadextra + '\' /><input id=\'primera_' + cont + '\' type=\'hidden\' style=\'margin-left: 20px; width: 30px; text-align: right;\' value=\'' + field[x].preciocalidadprimera + '\' /></p>' +
                                                         '<div class="toggle-content">' +
                                                             '<p>' +
                                                             '<strong>Tipo de Producto: </strong> ' + field[x].tipoproducto + '  ' +
@@ -229,6 +318,19 @@
                                                             '<p>' +
                                                             '<strong>Precio calidad de primera: </strong> ' + field[x].preciocalidadprimera + '  ' +
                                                             '</p>' +
+                                                            '<p>';
+                                if (field[x].tipoproducto == "GRANOS - PROCESADOS") {
+                                    text2 = granos[parseInt(Math.random() * 4)];
+                                } else if (field[x].tipoproducto == "HORTALIZAS") {
+                                    text2 = hortalizas[parseInt(Math.random() * 2)];
+                                } else if (field[x].tipoproducto == "FRUTAS") {
+                                    text2 = frutas[parseInt(Math.random() * 2)];
+                                } else {
+                                    text2 = "Bodega 30 - Local 034";
+                                }
+
+                                texto += '<strong>Local: </strong> ' + text2 +
+                                                            '</p>' +
                                                                 '<div class="one-half-responsive ">' +
 
                                                                     '<div class="submenu-navigation">' +
@@ -241,16 +343,18 @@
                                                 '</div>';
                                 numeropp++;
                                 cont++;
+
                                 if (numeropp == 10) {
                                     pagina++;
                                     numeropp = 0;
                                 }
-                                totalPedidoEsxtra = totalPedidoEsxtra + parseFloat(field[x].preciocalidadextra.replace(".", ""));
+                                totalPedidoExtra = totalPedidoExtra + parseFloat(field[x].preciocalidadextra.replace(".", ""));
                                 totalPedidoPrimera = totalPedidoPrimera + parseFloat(field[x].preciocalidadprimera.replace(".", ""));
+                                $("#numeros_productos").val($("#numeros_productos").val() + cont + ",");
                             }
                         });
                         $("#lista_Drogas").html(texto);
-                        $("#label_total_extra").html("Total compra calidad extra: $ " + formato_numero(totalPedidoEsxtra, 2, ",", "."));
+                        $("#label_total_extra").html("Total compra calidad extra: $ " + formato_numero(totalPedidoExtra, 2, ",", "."));
                         $("#label_total_primera").html("Total compra calidad de primera: $ " + formato_numero(totalPedidoPrimera, 2, ",", "."));
                         if (cont % 5 == 0) {
                             ultima_pagina = pagina - 1;
