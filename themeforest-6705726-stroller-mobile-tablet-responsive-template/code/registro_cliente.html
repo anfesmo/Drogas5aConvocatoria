@@ -22,6 +22,13 @@
 <link href="styles/owl.theme.css"       rel="stylesheet" type="text/css">
 <link href="styles/swipebox.css"         rel="stylesheet" type="text/css">
 <link href="styles/colorbox.css"         rel="stylesheet" type="text/css">
+<style>
+    .contactSubmitButton 
+    {
+        width: 48%;
+        display: inline !important;
+    }
+</style>
 
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/jqueryui.js"></script>
@@ -41,8 +48,7 @@
 <div id="preloader">
     <div id="status">
         <p class="center-text">
-            Loading the content...
-            <em>Loading depends on your connection speed!</em>
+           Cargando contenido... <em>La carga depende de su conexión a internet</em>
         </p>
     </div>
 </div>
@@ -139,6 +145,10 @@
         <div class="decoration"></div>
 
        <div class="content">
+         <div class="container no-bottom" style="text-align: center;">
+                    <h3>
+                        Registrar Cliente</h3>
+                </div>
             <div class="decoration"></div>
             <div class="one-half-responsive">
                 <div class="container no-bottom">
@@ -187,6 +197,8 @@
                                 </div>
                                 <div class="formSubmitButtonErrorsWrap">
                                     <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="Enviar" data-formId="contactForm"/>
+                                     <input type="button" class="buttonWrap button button-green contactSubmitButton" value="Cancelar" onclick="location.href='lista_clientes.html'"
+                                     />
                                 </div>
                             </fieldset>
                         </form>       
