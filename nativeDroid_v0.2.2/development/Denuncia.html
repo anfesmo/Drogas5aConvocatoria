@@ -61,6 +61,127 @@
     
     }
     </script> 
+    <script type="text/javascript">
+
+        var pagina_actual = 1;
+        var ultima_pagina = 1;
+        var primera_pagina = 1;
+        var numero_items = 0;
+        var dato_usuario = "";
+        var dato_psw = "";
+
+        
+
+        $(document).ready(function () {
+            $('.ui-icon.ui-icon-arrow-d.ui-icon-shadow').hide();
+     
+                cargar_departamentos();
+            
+        });
+
+        function cargar_departamentos() {
+            estados_cont = 0;
+            $('#div_cargando').show();
+            $("#combo_departamento").find('option').remove().end().attr("selected", "selected");
+            
+            var texto_combo = "";
+            var deptos=";";
+            var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Agricultura/insumos?$format=json";
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        crossDomain: true,
+                        success: function (data) {
+                            $.each(data, function (i, field) {
+                                var cant = field.length;
+                                var drogas = "";
+                                var cont=1;
+                                $.each(field, function (x, item) {
+                                    //alert(field[x].nombre_de_la_droga);
+                                    
+                                            
+                                            //alert(field[x].departamento);
+                                            if(deptos.indexOf(";"+field[x].departamento+";")==-1 ){
+                                                //alert("agregué");
+                                                deptos+=field[x].departamento+";";
+                                                texto_combo += "<option value='" + field[x].departamento + "'>" + field[x].departamento + "</option>";
+                                            
+                                            
+                                    }
+                                    
+                                });
+                                //alert(deptos);
+                                $("#combo_departamento").append(texto_combo);
+                                $("#combo_departamento").selectmenu('refresh');
+                                //$('#div_cargando').hide();
+                                cargar_ciudades();
+                            });
+                                
+                        },
+                        error: function (x, y, z) {
+                            if(y == "timeout"){
+                                
+                            }
+                        }, 
+                        timeout: 15000                          
+                    });
+            
+            
+               
+        }
+
+        function cargar_ciudades() {
+            $("#combo_municipio").find('option').remove().end().attr("selected", "selected");
+            var depto=$("#combo_departamento").val();
+            var texto_combo = "";
+            var municipios=";";
+            var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Agricultura/insumos?$filter=\"departamento\"='"+depto+"'&$format=json";
+            //alert(url);
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        crossDomain: true,
+                        success: function (data) {
+                            $.each(data, function (i, field) {
+                                var cant = field.length;
+                                var drogas = "";
+                                var cont=1;
+                                $.each(field, function (x, item) {
+                                    //alert(field[x].nombre_de_la_droga);
+                                    
+                                            
+                                            //alert(field[x].departamento);
+                                            if(municipios.indexOf(";"+field[x].municipio+";")==-1 ){
+                                                //alert("agregué");
+                                                municipios+=field[x].municipio+";";
+                                                texto_combo += "<option value='" + field[x].codmunicipio + "'>" + field[x].municipio + "</option>";
+                                            
+                                            
+                                    }
+                                    
+                                });
+                                //alert(deptos);
+                                $("#combo_municipio").append(texto_combo);
+                                $("#combo_municipio").selectmenu('refresh');
+                                $('#div_cargando').hide();
+                                //cargar_productos();
+                            });
+                                
+                        },
+                        error: function (x, y, z) {
+                            if(y == "timeout"){
+                                
+                            }
+                        }, 
+                        timeout: 15000                          
+                    });
+            
+            
+        }
+
+</script>
 </head>
 <body>
     <div data-role="page" data-theme='b'>
@@ -79,8 +200,14 @@
             <form>
                 <ul data-role="listview" data-inset="true">
                      <li data-role="fieldcontain">
-                        <label for="name2b">Ubicaci&oacute;n del reporte (Municipio, vereda, pueblo):</label>
-                        <input type="text" name="name2" id="name2b" value="" data-clear-btn="true" >
+                        <label for="name2b">Departamento:</label>
+                        <select class="styled-select" id="combo_departamento" name="combo_departamento" onchange="cargar_ciudades()">
+                        </select>
+                    </li>
+                     <li data-role="fieldcontain">
+                        <label for="name2b">Municipio:</label>
+                        <select class="styled-select" id="combo_municipio" name="combo_municipio">
+                        </select>
                     </li>
                      <li data-role="fieldcontain">
                         <label for="name2b">Nombre de la tienda o comerciante:</label>

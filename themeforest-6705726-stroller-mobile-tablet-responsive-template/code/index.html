@@ -37,7 +37,25 @@
 
     </head>
     <body>
-
+    <div id="especificaciones1" class="CargandoModalBackground" style="padding-top: 150px;">
+        <div style="width:100%; height:100%;" onclick="ocultar('especificaciones1');">
+            -<strong>Tamaño y peso de la naranja:</strong> tiene un diámetro de 6 a 10 centímetros. Las naranjas son de los frutos de menor tamaño . Su peso está entre los 150 gramos hasta loa 200 gramos sin piel.
+ <br />
+-<strong>Forma de la naranja:</strong>  las naranjas tienen forma de esfera y chatas por los polos.
+  <br />
+-<strong>Color de la naranja:</strong>  la cáscara de la naranja es muy coloreada, puede ser lisa o rugosa, pero dependiendo de la variedad, debajo de ella, tiene una segunda piel blanca que envuelve el fruto protegiendo la pulpa, la cual es muy esponjosa y de un color anaranjado. 
+  <br />
+-<strong>Sabor:</strong>  la pulpa contiene entre 8 y 12 gajos alargados y curvos, estos proporcionan un abundante jugo de sabor dulce con matices ácidos, más o menos fuertes dependiendo de la variedad.
+        </div>
+       
+    </div>
+    <div id="especificaciones2" class="CargandoModalBackground" style="padding-top: 150px;">
+        <div style="width:100%; height:100%;" onclick="ocultar('especificaciones2');">
+            Pertenece a la familia de las Anacardiáceas o marañón, que presenta más de 50 especies diferentes, de las cuales solo unas pocas se utilizan como fruto comestible. Su fruto es carnoso, su peso varia de 150 g a 2 Kg con forma ovalada algo oblonga, obtusa por sus extremos; 
+su piel es lisa y gruesa de color que varia desde el verde, amarillo con tonalidades rosadas, rojas o violetas donde recibe la luz directa del sol. Su pulpa es de color amarillo intenso rozando el anaranjado; jugoso y refrescante, especialmente cuando este bien madura. Su hueso es fibroso y muchas veces penetra la pulpa.
+        </div>
+       
+    </div>
     <div id="preloader">
         <div id="status">
             <p class="center-text">
@@ -141,7 +159,9 @@
                 <div class="decoration"></div>
                 
                 <div class="container no-bottom">
-                    <img class="responsive-image" src="images/misc/corabastos.jpg" alt="img">
+
+                    <img class="responsive-image" src="images/misc/corabastosm1.jpg" style="width:50%; float:left;"  alt="img" onclick="mostrar('especificaciones1')">
+                    <img class="responsive-image" src="images/misc/corabastosm2.jpg" style="width:50%; float:left;"  alt="img" onclick="mostrar('especificaciones2')">
                 </div>
                 
                 <div class="decoration"></div>
@@ -167,7 +187,57 @@
             </div>       
         </div>  
     </div>
+    <script type="text/javascript">
+        function mostrar(control) {
+            $('#' + control).fadeIn("slow");
+        }
 
+        function ocultar(control) {
+            $('#' + control).fadeOut("slow");
+        }
+        
+    </script>
+    <style>
+        .submenu-nav-items a
+        {
+            padding-left: 20px !important;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+            border-bottom: solid 1px rgba(0,0,0,0.1) !important;
+        }
+        
+        .vinculo_derecha
+        {
+            float: right;
+            padding-right: 1%;
+        }
+        
+        .vinculo_izquierda
+        {
+            float: left;
+            padding-left: 1%;
+            display: none;
+        }
+        
+        .CargandoModalBackground
+        {
+            overflow: hidden;
+            background-color: #0D0D0D;
+            filter: alpha(opacity=90);
+            opacity: 0.9;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            text-align: center;
+            vertical-align: middle;
+            width: 100%;
+            height: 100%;
+            display: none;
+            z-index: 9999;
+            color:white;
+            text-align:left;
+        }
+    </style>
     </body>
     </html>
 
