@@ -15,6 +15,15 @@
     <!-- nativeDroid: Color Schemes -->
     <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
     <style type="text/css">
+
+
+        .star
+        {
+            padding-left: 25px;
+            padding-bottom: 10px;
+            display: inline;
+        }
+ 
         .parra_texto
         {
             font-weight: 300;
@@ -338,16 +347,18 @@
             });
         }
 
-        function PosicionGoogle(departamento, municipio, direccion, dias, horario, lat, long) {
+        function PosicionGoogle(lat, longi) {
             //            $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address=Colombia,' + departamento + ',' + ciudad + '&sensor=true', function (data) {
             marker = new google.maps.Marker({
-                position: new google.maps.LatLng(lat, long),
+                position: new google.maps.LatLng(lat, longi),
                 map: map
             });
-            marker.Message = "<strong>Municipio</strong>: " + municipio + "<br />";
-            marker.Message += "<strong>Dirección/Corregimiento</strong>: " + direccion + "<br />";
-            marker.Message += "<strong>Días de atención</strong>: " + dias + "<br />";
-            marker.Message += "<strong>Horario de atención</strong>: " + horario + "<br />";
+            marker.Message = "<strong>FERTILIZANTES Y M&Aacute;S</strong><br />";
+            marker.Message += "<strong>Municipio:</strong>: Duitama<br />";
+            marker.Message += "<strong>Dirección</strong>: Carrera 23<br />";
+            marker.Message += "<strong>Calificación: </strong>: 4 estrellas<br />";
+            marker.Message += "<strong>Teléfono</strong>: 12345678<br />";
+            marker.Message += '<strong>Calificar: </strong><br /><img class="star" src="imagenes/estrella_llena.png"><img class="star" src="imagenes/estrella_llena.png"><img class="star" src="imagenes/estrella_llena.png"><img class="star" src="imagenes/estrella_llena.png"><img class="star" src="imagenes/estrella_vacia.png">';
             google.maps.event.addListener(marker, 'click', function () {
                 infowindow.setContent(this.Message)
                 infowindow.open(map, this);
@@ -370,7 +381,7 @@
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
                     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-                    verDatos(Depto);
+                    PosicionGoogle(5.822555, -73.027369);
                 });
             }
         }
@@ -424,13 +435,13 @@
             
             <strong><span class="label_titulo">Seleccione el departamento:</span> </strong>
             <br />
-            <select id="combo_departamento" name="combo_departamento" class="styled-select" onchange="crearMapa()">
+            <select id="combo_departamento" name="combo_departamento" class="styled-select" >
                 <option value="Amazonas">Amazonas</option>
                 <option value="Antioquia">Antioquia</option>
                 <option value="Arauca">Arauca</option>
                 <option value="Atlantico">Atlántico</option>
                 <option value="Bolivar">Bolívar</option>
-                <option value="Boyacá">Boyacá</option>
+                <option value="Boyacá" selected>Boyacá</option>
                 <option value="Caldas">Caldas</option>
                 <option value="Caqueta">Caquetá</option>
                 <option value="Casanare">Casanare</option>
