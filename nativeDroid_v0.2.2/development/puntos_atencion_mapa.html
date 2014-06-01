@@ -354,7 +354,27 @@
                 map: map
             });
             marker.Message = "<strong>FERTILIZANTES Y M&Aacute;S</strong><br />";
-            marker.Message += "<strong>Municipio:</strong>: Duitama<br />";
+            marker.Message += "<strong>Municipio:</strong>: Abejorral<br />";
+            marker.Message += "<strong>Dirección</strong>: Carrera 23<br />";
+            marker.Message += "<strong>Calificación: </strong>: 4 estrellas<br />";
+            marker.Message += "<strong>Teléfono</strong>: 12345678<br />";
+            marker.Message += '<strong>Calificar: </strong><br /><img class="star" src="imagenes/estrella_llena.png"><img class="star" src="imagenes/estrella_llena.png"><img class="star" src="imagenes/estrella_llena.png"><img class="star" src="imagenes/estrella_llena.png"><img class="star" src="imagenes/estrella_vacia.png">';
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.setContent(this.Message)
+                infowindow.open(map, this);
+            });
+            markers.push(marker);
+            //});
+        }
+
+        function PosicionGoogle2(lat, longi) {
+            //            $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address=Colombia,' + departamento + ',' + ciudad + '&sensor=true', function (data) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(lat, longi),
+                map: map
+            });
+            marker.Message = "<strong>FERTILIZANTES Y M&Aacute;S</strong><br />";
+            marker.Message += "<strong>Municipio:</strong>: Abejorral<br />";
             marker.Message += "<strong>Dirección</strong>: Carrera 23<br />";
             marker.Message += "<strong>Calificación: </strong>: 4 estrellas<br />";
             marker.Message += "<strong>Teléfono</strong>: 12345678<br />";
@@ -381,7 +401,12 @@
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
                     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-                    PosicionGoogle(5.822555, -73.027369);
+                    PosicionGoogle(5.790666, -75.423876);
+                    PosicionGoogle2(6.188111, -75.335986);
+                    PosicionGoogle2(6.379217, -74.693286);
+                    PosicionGoogle2(6.319163, -76.110522);
+
+
                 });
             }
         }
@@ -437,11 +462,11 @@
             <br />
             <select id="combo_departamento" name="combo_departamento" class="styled-select" >
                 <option value="Amazonas">Amazonas</option>
-                <option value="Antioquia">Antioquia</option>
+                <option value="Antioquia" selected>Antioquia</option>
                 <option value="Arauca">Arauca</option>
                 <option value="Atlantico">Atlántico</option>
                 <option value="Bolivar">Bolívar</option>
-                <option value="Boyacá" selected>Boyacá</option>
+                <option value="Boyacá" >Boyacá</option>
                 <option value="Caldas">Caldas</option>
                 <option value="Caqueta">Caquetá</option>
                 <option value="Casanare">Casanare</option>
