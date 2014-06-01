@@ -12,7 +12,7 @@
     <!-- nativeDroid: Light/Dark -->
     <link rel="stylesheet" href="css/jquerymobile.nativedroid.light.css" id='jQMnDTheme' />
     <!-- nativeDroid: Color Schemes -->
-    <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.red.css" id='jQMnDColor' />
+    <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
     <style type="text/css">
         .parra_texto
         {
@@ -41,7 +41,31 @@
             Color:black !important;
         }
     
-    
+    .styled-button {
+            width: 60%;
+            height: 34px;
+            overflow: hidden;
+            margin: 5px;
+            background-color: #ddd;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+            -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+            box-shadow: 0 2px 0 #99cc00, 0 -1px #fff inset;
+            color: #888;
+            border: none;
+            outline: none;
+            display: inline-block;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            padding-top: 10px;
+            text-align: center;
+            opacity: 0.6;
+            margin-left: 20%;
+        }
     
     </style>
     <!-- jQuery / jQueryMobile Scripts -->
@@ -67,28 +91,48 @@
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
             <a href="index.html" data-ajax="false"><i class='icon-ellipsis-vertical'></i></a>
             <h1>
-                M&aacute;s Informaci&oacute;n</h1>
+                Noticias</h1>
         </div>
         <div data-role="content">
             <div class='message info'>
                 <i class='icon-info-sign'></i>
                 <p>
-                    En esta secci&oacute;n podr&aacute; consultar los enlaces a las novedades de la unidad de v&iacute;ctimas.
+                    En esta secci&oacute;n podr&aacute; consultar las &uacute;ltimas noticias relacionadas con el sector agropecuario.
                 </p>
             </div>
             <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
-                <li style='border-bottom-color:red !important;'>
+                <li style='border-bottom-color:#99cc00 !important;'>
                     <div>
                         <h3 style="padding-bottom: 5px;">
-                            <a href="#" class="textoEnlace" onclick="abrirUnidad()">Sala de prensa unidad de v&iacute;ctimas </a>
+                            <a href="#" class="textoEnlace">Un Campo Moderno tiene que ir de la Mano con las TIC, dice MinAgricultura en Lanzamiento de Agrot&oacute;n - <strong>30 de Mayo de 2014 </strong></a>
+                            <br />
+                            <strong>
+                <input type="button" class="styled-button" value="Leer m&aacute;s" id="btnConsulta" />
+            </strong>
                         </h3>
                         <br />
                     </div>
                 </li>
-                <li style='border-bottom-color:red !important;'>
+               <li style='border-bottom-color:#99cc00 !important;'>
                     <div>
                         <h3 style="padding-bottom: 5px;">
-                            <a href="#" class="textoEnlace" onclick="abrirEscuela()">Escuela de reparaciones </a>
+                            <a href="#" class="textoEnlace">Seminario Internacional de Cultivo de Uva - <strong>29 de Mayo de 2014</strong></a>
+                            <br />
+                            <strong>
+                <input type="button" class="styled-button" value="Leer m&aacute;s" id="btnConsulta" />
+            </strong>
+                        </h3>
+                        <br />
+                    </div>
+                </li>
+                <li style='border-bottom-color:#99cc00 !important;'>
+                    <div>
+                        <h3 style="padding-bottom: 5px;">
+                            <a href="#" class="textoEnlace">Conferencia Internacional Ciencia y Tecnolog&iacute;a del Secado 2014 - <strong>29 de Mayo de 2014</strong></a>
+                            <br />
+                            <strong>
+                <input type="button" class="styled-button" value="Leer m&aacute;s" id="btnConsulta" />
+            </strong>
                         </h3>
                         <br />
                     </div>

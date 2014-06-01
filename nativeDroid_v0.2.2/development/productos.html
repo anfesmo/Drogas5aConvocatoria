@@ -248,8 +248,8 @@
                                 //alert(deptos);
                                 $("#combo_departamento").append(texto_combo);
                                 $("#combo_departamento").selectmenu('refresh');
-                                //$('#div_cargando').hide();
-                                cargar_ciudades();
+                                $('#div_cargando').hide();
+                                //cargar_ciudades();
                             });
                                 
                         },
@@ -320,14 +320,14 @@
             $("#lista_entidades").html("");
             $('#flechas_paginacion').show();
             var depto=$("#combo_departamento").val();
-            var muni=$("#combo_municipio").val();
+            //var muni=$("#combo_municipio").val();
             var texto_combo = "";
             var municipios=";";
             pagina_actual = 1;
                 ultima_pagina = 1;
                 primera_pagina = 1;
                 numero_items = 0;
-            var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Agricultura/insumos?$filter=\"departamento\"='"+depto+"'AND\"codmunicipio\"='"+muni+"'&$format=json";
+            var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/Ministerio_de_Agricultura/insumos?$filter=\"departamento\"='"+depto+"'&$format=json";
             //alert(url);
                     $.ajax({
                         url: url,
@@ -350,12 +350,12 @@
                                         numeropp++;
 
                                         texto = "<li class='borde_listview todas " + pagina + "'>" +
-                                       "<h1><strong>" + field[x].tipodeinsumo +" - $"+field[x].precio+ "</strong></h1>" +
+                                       "<h1><strong>" + field[x].grupo +"</strong><br />Municipio: "+field[x].municipio+"<br /> Valor ministerio: $"+field[x].precio+ "<br /> Valor promedio reportado: $78000</h1>" +
                                        "Tipo de producción: "+field[x].tipodeproduccion+"<br />" +
-                                       "Grupo: "+field[x].grupo+"<br />" +
+                                       "Tipo de insumo: "+field[x].tipodeinsumo+"<br /><br />" +
                                        "<input type='checkbox' /> Comparar" +
                                        "<div style=\"text-align: right;\">" +
-                                       "<a style=\"color: #404040 !important;\" onclick='denunciar()'>Denunciar<a title=\" Denunciar\" class=\"icon-thumbs-down  icon-large\" style=\"margin-right: 8px !important; margin-left: 8px !important;" +
+                                       "<a style=\"color: #404040 !important;\" onclick='denunciar()'>Reportar precio<a title=\" Denunciar\" class=\"icon-thumbs-down  icon-large\" style=\"margin-right: 8px !important; margin-left: 8px !important;" +
                                        "color: #404040 !important;\" ></a>" +
                                        
                                       
@@ -714,13 +714,6 @@ function denunciar(){
             </strong>
             <br />
             <select class="styled-select" id="combo_departamento" name="combo_departamento" onchange="cargar_ciudades()">
-            </select>
-            <strong>
-                <span class="label_titulo">Seleccione
-                    la ciudad:</span>
-            </strong>
-            <br />
-            <select class="styled-select" id="combo_municipio" name="combo_municipio">
             </select>
             
             <strong>
