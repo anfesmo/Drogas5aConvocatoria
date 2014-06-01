@@ -218,8 +218,8 @@
             {
                 if ((i + ",").indexOf($("#numeros_productos").val())) {
                     if ($("#primera_" + i).val() != undefined) {
-                        totalPedidoExtra = totalPedidoExtra + (parseFloat($("#primera_" + i).val().replace(".", "")) * $("#cantidad_" + i).val());
-                        totalPedidoPrimera = totalPedidoPrimera + (parseFloat($("#extra_" + i).val().toString().replace(".", "")) * $("#cantidad_" + i).val());
+                        totalPedidoExtra = totalPedidoExtra + (parseFloat($("#extra_" + i).val().replace(".", "")) * $("#cantidad_" + i).val());
+                        totalPedidoPrimera = totalPedidoPrimera + (parseFloat($("#primera_" + i).val().toString().replace(".", "")) * $("#cantidad_" + i).val());
                     }
                 }
             }
