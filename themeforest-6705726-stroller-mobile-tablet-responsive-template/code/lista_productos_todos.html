@@ -169,6 +169,41 @@
                    <input type="button" class="next-quote button-dark" value=">" style="background-image:none; color:white; height:40px; width:40px;" onclick="pagSiguiente()" />
                     <input type="button" class="prev-quote button-dark" value="<" style="background-image:none; color:white; height:40px; width:40px;" onclick="pagAnterior()" />
                     <div id="listaProductos" class="quote-slider" data-snap-ignore="true">
+                        
+                        <div>
+                            <div class="quote-item">
+                                <img src="images/drugs/extasis1.png" alt="img">
+                                <h4>Minutos después del consumo</h4>
+                                <em>!Alucinaciones!</em>
+                                <strong>El consumo de extasis provoca alucinaciones, dilatación de pupilas, sudoración excesiva.</strong>
+                                
+                            </div>
+                        </div>
+                        <div>
+                            <div class="quote-item">
+                                <img src="images/drugs/extasis2.png" alt="img">
+                                <h4>Sobredosis</h4>
+                                <em>!Pérdida de la conciencia!</em>
+                                <strong>Movimientos musculares involuntarios, ataques de pánico y pérdida de la conciencia.</strong>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="quote-item">
+                                <img src="images/drugs/extasis1.png" alt="img">
+                                <h4>Minutos después del consumo</h4>
+                                <em>!Alucinaciones!</em>
+                                <strong>El consumo de extasis provoca alucinaciones, dilatación de pupilas, sudoración excesiva.</strong>
+                                
+                            </div>
+                        </div>
+                        <div>
+                            <div class="quote-item">
+                                <img src="images/drugs/extasis2.png" alt="img">
+                                <h4>Sobredosis</h4>
+                                <em>!Pérdida de la conciencia!</em>
+                                <strong>Movimientos musculares involuntarios, ataques de pánico y pérdida de la conciencia.</strong>
+                            </div>
+                        </div>
                     </div>
             </div>  
                 <br>
@@ -181,7 +216,7 @@
                     <a href="#" class="goup-footer"></a>
                     <a href="#" class="twitter-footer"></a>
                 </div>
-                <p class="copyright uppercase center-text no-bottom">Corabastos 2014<br> Todos los derechos reservados</p>        
+                <p class="copyright uppercase center-text no-bottom">ODC 2014<br> Todos los derechos reservados</p>        
             </div>
         </div>  
               
@@ -190,171 +225,145 @@
 </div>
 
 <script type="text/javascript">
-var pagActual=1;
-var pagMaxima=1;
+    var pagActual = 1;
+    var pagMaxima = 1;
 
-function Buscar(){
-    var palabraBuscar= $('#contactNameField').val();
-    var texto = "";
-                    var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/corabastos/boletinprecios?$format=json";
-                    $.ajax({
-                        url: url,
-                        type: 'GET',
-                        dataType: 'jsonp',
-                        crossDomain: true,
-                        success: function (data) {
-                            $.each(data, function (i, field) {
-                                var cant = field.length;
-                                var drogas = "";
-                                var cont=1;
-                                $.each(field, function (x, item) {
-                                    //alert(field[x].nombre_de_la_droga);
-                                    if(field[x].producto.toLowerCase().indexOf(palabraBuscar.toLowerCase())!=-1 ){
-                                            
-                                                texto+='<div class="owl-item todas '+cont+'" style="width:100%;"><div><div class="quote-item">'+
-                                                                '<img src="images/drugs/agricola.jpg" alt="img">'+
-                                                                '<h4><strong>Producto:</strong>'+field[x].producto+'</h4>'+
-                                                                '<h4><strong>Tipo producto:</strong>'+field[x].tipoproducto+'</h4>'+
-                                                                '<h4><strong>Presentación:</strong>'+field[x].presentacion+'</h4>'+
-                                                                '<h4><strong>Cantidad:</strong>'+field[x].cantidad+'</h4>'+
-                                                                '<h4><strong>Unidad:</strong>'+field[x].unidad+'</h4>'+
-                                                                '<h4><strong>Precio extra:</strong>'+field[x].preciocalidadextra+'</h4>'+
-                                                                '<h4><strong>Precio calidad primera:</strong>'+field[x].preciocalidadprimera+'</h4>'+
-                                                            '<br /><h4><input type="button" onclick="agregarProducto(\''+field[x].producto+'\')" class="button-big button-green" value="Agregar a la lista" />&nbsp;<input type="button" onclick="consultarLocales(\''+field[x].tipoproducto+'\')" class="button-big button-green" value="Consultar locales" /></h4></div>'+
+    function Buscar() {
+        var palabraBuscar = $('#contactNameField').val();
+        var texto = "";
+        var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/corabastos/boletinprecios?$format=json";
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'jsonp',
+            crossDomain: true,
+            success: function (data) {
+                $.each(data, function (i, field) {
+                    var cant = field.length;
+                    var drogas = "";
+                    var cont = 1;
+                    $.each(field, function (x, item) {
+                        //alert(field[x].nombre_de_la_droga);
+                        if (field[x].producto.toLowerCase().indexOf(palabraBuscar.toLowerCase()) != -1) {
+
+                            texto += '<div class="owl-item todas ' + cont + '" style="width:100%;"><div><div class="quote-item">' +
+                                                                '<img src="images/drugs/agricola.jpg" alt="img">' +
+                                                                '<h4><strong>Producto:</strong>' + field[x].producto + '</h4>' +
+                                                                '<h4><strong>Tipo producto:</strong>' + field[x].tipoproducto + '</h4>' +
+                                                                '<h4><strong>Presentación:</strong>' + field[x].presentacion + '</h4>' +
+                                                                '<h4><strong>Cantidad:</strong>' + field[x].cantidad + '</h4>' +
+                                                                '<h4><strong>Unidad:</strong>' + field[x].unidad + '</h4>' +
+                                                                '<h4><strong>Precio extra:</strong>' + field[x].preciocalidadextra + '</h4>' +
+                                                                '<h4><strong>Precio calidad primera:</strong>' + field[x].preciocalidadprimera + '</h4>' +
+                                                            '<br /><h4><input type="button" onclick="agregarProducto(\'' + field[x].producto + '\')" class="button-big button-green" value="Agregar a la lista" />&nbsp;<input type="button" onclick="consultarLocales(\'' + field[x].tipoproducto + '\')" class="button-big button-green" value="Consultar locales" /></h4></div>' +
                                                         '</div></div>';
-                                                        cont++;
-                                     }
-                                    
-                                });
-                                $("#listaProductos").html(texto);
-                                pagMaxima=cont--;
-                                pagActual=1;
-                                $('#listaProductos .todas').hide();
-                                $('#listaProductos .1').show();
+                            cont++;
+                        }
 
-                            });
-                                
-                        },
-                        error: function (x, y, z) {
-                            if(y == "timeout"){
-                                
-                            }
-                        }, 
-                        timeout: 15000                          
                     });
+                    $("#listaProductos").html(texto);
+                    pagMaxima = cont--;
+                    pagActual = 1;
+                    $('#listaProductos .todas').hide();
+                    $('#listaProductos .1').show();
 
-}
+                });
 
-function pagSiguiente(){
-        if(pagActual+1<pagMaxima){
+            },
+            error: function (x, y, z) {
+                if (y == "timeout") {
+
+                }
+            },
+            timeout: 15000
+        });
+
+    }
+
+    function pagSiguiente() {
+        if (pagActual + 1 < pagMaxima) {
             $('#listaProductos .todas').hide();
-            pagActual=pagActual+1;
+            pagActual = pagActual + 1;
             $('#listaProductos .' + (pagActual)).show();
         }
-}
+    }
 
-function pagAnterior(){
-        if(pagActual-1>=1){
+    function pagAnterior() {
+        if (pagActual - 1 >= 1) {
             $('#listaProductos .todas').hide();
-            pagActual=pagActual-1;
+            pagActual = pagActual - 1;
             $('#listaProductos .' + (pagActual)).show();
         }
-}
+    }
 
-function cargarImagenes() 
-    {
+    function cargarImagenes() {
         $("#gallery-images").css("display", "block");
     }
-        function cargar_listaProductos() {
-            
-                    var texto = "";
-                    var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/corabastos/boletinprecios?$format=json";
-                    $.ajax({
-                        url: url,
-                        type: 'GET',
-                        dataType: 'jsonp',
-                        crossDomain: true,
-                        success: function (data) {
-                            $.each(data, function (i, field) {
-                                var cant = field.length;
-                                var drogas = "";
-                                var cont=1;
-                                $.each(field, function (x, item) {
-                                    //alert(field[x].nombre_de_la_droga);
-                                    
-                                            
-                                                texto+='<div class="owl-item todas '+cont+'" style="width:100%;"><div><div class="quote-item">'+
-                                                                '<img src="images/drugs/agricola.jpg" alt="img">'+
-                                                                '<h4><strong>Producto:</strong>'+field[x].producto+'</h4>'+
-                                                                '<h4><strong>Tipo producto:</strong>'+field[x].tipoproducto+'</h4>'+
-                                                                '<h4><strong>Presentación:</strong>'+field[x].presentacion+'</h4>'+
-                                                                '<h4><strong>Cantidad:</strong>'+field[x].cantidad+'</h4>'+
-                                                                '<h4><strong>Unidad:</strong>'+field[x].unidad+'</h4>'+
-                                                                '<h4><strong>Precio extra:</strong>'+field[x].preciocalidadextra+'</h4>'+
-                                                                '<h4><strong>Precio calidad primera:</strong>'+field[x].preciocalidadprimera+'</h4>'+
-                                                            '<br /><h4><input type="button" onclick="agregarProducto(\''+field[x].producto+'\')" class="button-big button-green" value="Agregar a la lista" />&nbsp;<input type="button" onclick="consultarLocales(\''+field[x].tipoproducto+'\')" class="button-big button-green" value="Consultar locales" /></h4></div>'+
+    function cargar_listaProductos() {
+
+        var texto = "";
+        var url = "http://servicedatosabiertoscolombia.cloudapp.net/v1/corabastos/boletinprecios?$format=json";
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'jsonp',
+            crossDomain: true,
+            success: function (data) {
+                $.each(data, function (i, field) {
+                    var cant = field.length;
+                    var drogas = "";
+                    var cont = 1;
+                    $.each(field, function (x, item) {
+                        //alert(field[x].nombre_de_la_droga);
+
+
+                        texto += '<div class="owl-item todas ' + cont + '" style="width:100%;"><div><div class="quote-item">' +
+                                                                '<img src="images/drugs/agricola.jpg" alt="img">' +
+                                                                '<h4><strong>Producto:</strong>' + field[x].producto + '</h4>' +
+                                                                '<h4><strong>Tipo producto:</strong>' + field[x].tipoproducto + '</h4>' +
+                                                                '<h4><strong>Presentación:</strong>' + field[x].presentacion + '</h4>' +
+                                                                '<h4><strong>Cantidad:</strong>' + field[x].cantidad + '</h4>' +
+                                                                '<h4><strong>Unidad:</strong>' + field[x].unidad + '</h4>' +
+                                                                '<h4><strong>Precio extra:</strong>' + field[x].preciocalidadextra + '</h4>' +
+                                                                '<h4><strong>Precio calidad primera:</strong>' + field[x].preciocalidadprimera + '</h4>' +
+                                                            '<br /><h4><input type="button" onclick="agregarProducto(\'' + field[x].producto + '\')" class="button-big button-green" value="Agregar a la lista" />&nbsp;<input type="button" onclick="consultarLocales(\'' + field[x].tipoproducto + '\')" class="button-big button-green" value="Consultar locales" /></h4></div>' +
                                                         '</div></div>';
-                                                        cont++;
-                                     
-                                    
-                                });
-                                $("#listaProductos").html(texto);
-                                pagMaxima=cont--;
-                                $('#listaProductos .todas').hide();
-                                $('#listaProductos .1').show();
+                        cont++;
 
-                            });
-                                
-                        },
-                        error: function (x, y, z) {
-                            if(y == "timeout"){
-                                
-                            }
-                        }, 
-                        timeout: 15000                          
+
                     });
-                }
+                    $("#listaProductos").html(texto);
+                    pagMaxima = cont--;
+                    $('#listaProductos .todas').hide();
+                    $('#listaProductos .1').show();
 
-                function agregarProducto(prod){
-                    localStorage.setItem("MisProductos", localStorage.getItem("MisProductos")+","+prod+",");
-                    alert("El producto se ha agregado a su lista personal");
-                }
-
-                function consultarLocales(categoria){
-                    localStorage.setItem("CategoriaProducto", categoria);
-                    document.location.href="listaLocalesProducto.html";
-                }
-
-                $(document).ready(function () {
-                    localStorage.setItem("MisProductos","");
-                  cargar_listaProductos();
                 });
+
+            },
+            error: function (x, y, z) {
+                if (y == "timeout") {
+
+                }
+            },
+            timeout: 15000
+        });
+    }
+
+    function agregarProducto(prod) {
+        localStorage.setItem("MisProductos", localStorage.getItem("MisProductos") + "," + prod + ",");
+        alert("El producto se ha agregado a su lista personal");
+    }
+
+    function consultarLocales(categoria) {
+        localStorage.setItem("CategoriaProducto", categoria);
+        document.location.href = "listaLocalesProducto.html";
+    }
+
+    $(document).ready(function () {
+        localStorage.setItem("MisProductos", "");
+        cargar_listaProductos();
+    });
                 
         </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
