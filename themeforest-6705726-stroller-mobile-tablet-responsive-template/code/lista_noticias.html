@@ -14,10 +14,12 @@
     <style>
         .star
         {
-            padding-left: 25px;
-            padding-bottom: 10px;
             display: inline;
+            background-image: url(../images/misc/facebook.png);
+            width: 30px;
+            margin: 0px 0px 0px 47px;    
         }
+
     </style>
     <script type="text/javascript" src="scripts/jquery.js"></script>
     <script type="text/javascript" src="scripts/jqueryui.js"></script>
@@ -148,6 +150,8 @@
                 <div class="container">
                     <div class="toggle-2">
                         <a href="#" class="deploy-toggle-2">Semiparalizada Cartagena por paro de transportadores</a>
+                        <img src="images/misc/facebook.png" class="star" onclick="abrirPaginaFacebook()">
+                        <img src="images/misc/twitter.png" class="star" style="margin-left:5px;" onclick="abrirPaginaTwitter()">
                         <div class="toggle-content">
                             <p>
                                 Bloqueos en diversas vías de la ciudad, especialmente en el sur, enfrentamientos con la Fuerza Pública y un bajo flujo de buses y busetas, se registran este miércoles en Cartagena Ante esta situación, el alcalde Dionisio Vélez decidió levantar por esta jornada la medida del pico y placa, tanto para vehículos particulares como los del servicio público y motocicletas. En sitios como La Bomba del Amparo y en la entrada del barrio San José de los Campanos, se presentaron algunos disturbios.
@@ -158,6 +162,9 @@
                 <div class="container">
                         <div class="toggle-2">
                         <a href="#" class="deploy-toggle-2">Cali se paralizó por bloqueos de transportadores</a>
+                        <img src="images/misc/facebook.png" class="star">
+                        <img src="images/misc/twitter.png" class="star" style="margin-left:5px;">
+                      
                         <div class="toggle-content">
                             <p>
                                Si los caleños se han quejado en estos cinco años de las caminatas y las largas esperas en el servicio de transporte masivo MIO, el miércoles les tocó desplazarse a pie o, incluso, subirse en cualquier vehículo que los acercara hasta sus lugares de trabajo o estudio. Al bloqueo de los dueños y conductores de carros del antiguo sistema colectivo de las principales entradas a la ciudad se sumaron choques con el Esmad, en los cuales murió un pregonero del servicio colectivo al recibir un disparo en la cabeza. El hecho se presentó en el sector Poblado II.
@@ -169,6 +176,9 @@
                 <div class="container">
                         <div class="toggle-2">
                         <a href="#" class="deploy-toggle-2">El paro de los papicultores puede ser apenas el segundo de una serie que incluiría a otros sectores.</a>
+                        <img src="images/misc/facebook.png" class="star">
+                        <img src="images/misc/twitter.png" class="star" style="margin-left:5px;">
+                      
                         <div class="toggle-content">
                             <p>
                                La protesta que por estos días realizan los cultivadores del papa avivó el debate sobre el uso de los mecanismos de hecho (marchas, bloqueos de carreteras y cese de la oferta en el mercado interno) como instrumento para conseguir beneficios para cada sector, de forma individual. Todo parte de que el espejo no está muy lejos. Hace apenas cinco semanas el Gobierno aceptó negociar con los organizadores de un paro cafetero que duró más de ocho días un subsidio de 145.000 pesos por cada carga de café, y otros beneficios. Todo ello, a cambio de que se levantara el bloqueo vial registrado en varias zonas cafeteras del país. “Lo grave no fue haber negociado, sino que se hiciera por fuera de la institucionalidad”, dijo a Portafolio el presidente de la Sociedad de Agricultores de Colombia (SAC), quien además indicó que el problema es que el Gobierno abrió esa puerta, y ahora tendrá que enfrentar situaciones similares en otros sectores. “El Gobierno debe aprender a respetar la institucionalidad”, dijo Mejía. Las negociaciones con los paperos deben hacerse dentro de estos términos, para no repetir el error cometido con los cafeteros”. El paro de los paperos tiene como eje central la misma aspiración de los cafeteros: tener un precio de sustentación.
@@ -216,6 +226,16 @@
     <script>
         function agregarCliente () {
             location.href = "registro_cliente.html"
+        }
+
+        function abrirPaginaFacebook() {
+    
+            window.open("https://www.facebook.com/share.php?u=http://www.corabastos.com.co/", "_blank", "closebuttoncaption=Regresar");
+        }
+    
+        function abrirPaginaTwitter() {
+        
+            window.open("https://twitter.com/home?status=He visto esta noticia en la app de Corabastos, de seguro puede interesarte " + " " + "http://www.corabastos.com.co/", "_blank", "closebuttoncaption=Regresar");
         }
     </script>
 </body>
