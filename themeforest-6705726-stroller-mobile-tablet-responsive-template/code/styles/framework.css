@@ -15,7 +15,7 @@
 /*////////////////*/
 
 * {
-	appearance:normal;
+	appearance:normal; 
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	margin: 0;
@@ -898,7 +898,7 @@ table tr:hover td{
 }
 
 .blue-bubble{
-	background-color:#0b84fe!important;
+	background-color:#27AE60!important;
 	color:#FFFFFF!important;
 	border:none!important;
 }
