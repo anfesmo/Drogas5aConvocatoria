@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="all-elements">
-       <div id="sidebar" class="page-sidebar">
+        <div id="sidebar" class="page-sidebar">
             <div class="page-sidebar-scroll">
                 <div class="sidebar-shortcuts">
                     <a href="#" class="shortcut-close"></a>
@@ -66,23 +66,23 @@
                 </div>
                 <div class="sidebar-decoration"></div>
                 <div class="navigation-item">
-                    <a href="lista_productos_todos.html" class="nav-item home-locales submenu-deploy">Listado de Productos<em class="dropdown-item"></em></a>
-                    <div class="nav-submenu" >
-                        <a href="lista_productos_todos.html" style="color: white !important;">     Granos y Abarrotes              <em class="unselected-item"></em></a>
-                        <a href="lista_productos_todos.html" style="color: white !important;">      Perecederos            <em class="unselected-item"></em></a>
-                    </div>
+                    <a href="lista_productos_todos.html" class="nav-item home-locales">Listado de Productos<em class="unselected-item"></em></a>
                 </div>
                 <div class="sidebar-decoration"></div>
                 <div class="navigation-item">
-                    <a href="lista_mis_productos.html" class="nav-item home-compras">Mi Lista de Compras<em class="dropdown-item"></em></a>
+                    <a href="lista_mis_productos.html" class="nav-item home-compras">Mi Lista de Compras<em class="unselected-item"></em></a>
                 </div>   
-                <div class="sidebar-decoration"></div>          
+                <div class="sidebar-decoration"></div> 
+                 <div class="navigation-item">
+                    <a href="lista_clientes.html" class="nav-item home-vendedor">Soy Comerciante<em class="unselected-item"></em></a>
+                </div>
+                <div class="sidebar-decoration"></div>         
                 <div class="navigation-item">
                     <a href="faqs.html" class="nav-item home-faqs">Preguntas Frecuentes<em class="unselected-item"></em></a>
                 </div>
                 <div class="sidebar-decoration"></div>
                 <div class="navigation-item">
-                    <a href="noticias.html" class="nav-item home-noticias">Noticias<em class="dropdown-item"></em></a>
+                    <a href="lista_noticias.html" class="nav-item home-noticias">Noticias<em class="unselected-item"></em></a>
                 </div>   
                 <div class="sidebar-breadcrumb">INFORMACIÓN</div>
                 
@@ -270,7 +270,7 @@
                         var drogas = "";
 
                         $.each(field, function (x, item) {
-                            
+
                             bodega = field[x].codigolocal.substring(0, 2);
                             local = field[x].codigolocal.substring(2, 7);
 
@@ -299,7 +299,6 @@
                                                                             '</div>' +
                                                                            '<a href="#" style="border-top: solid 1px rgba(0,0,0,0.1); padding-left: 20px !important; padding-top: 10px !important; padding-bottom: 10px !important; border-bottom: solid 1px rgba(0,0,0,0.1) !important;"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Como Llegar ?</li></ul></a>' +
                                                                         '<a href="#" onclick="consultarProductos(\'' + field[x].comercializacion + '\')" style="border-top: solid 1px rgba(0,0,0,0.1); padding-left: 20px !important; padding-top: 10px !important; padding-bottom: 10px !important; border-bottom: solid 1px rgba(0,0,0,0.1) !important;"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Lista de Productos </li></ul></a>' +
-                                                                        '<a href="#" style="border-top: solid 1px rgba(0,0,0,0.1); padding-left: 20px !important; padding-top: 10px !important; padding-bottom: 10px !important; border-bottom: solid 1px rgba(0,0,0,0.1) !important;"><ul style="margin-bottom:0px;" class="icon-list"><li class="right-list">Calificar</li></ul></a>' +
                                                                     '</div>' +
                                                                 '</div>' +
                                                         '</div>' +
