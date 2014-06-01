@@ -255,7 +255,7 @@ function Buscar(){
                                                                 '<h4><strong>Unidad:</strong>'+field[x].unidad+'</h4>'+
                                                                 '<h4><strong>Precio extra:</strong>'+field[x].preciocalidadextra+'</h4>'+
                                                                 '<h4><strong>Precio calidad primera:</strong>'+field[x].preciocalidadprimera+'</h4>'+
-                                                            '<br /><h4><input type="button" onclick="agregarProducto(\''+field[x].producto+'\')" class="button-big button-green" value="Agregar a la lista" /></h4></div>'+
+                                                            '<br /><h4><input type="button" onclick="agregarProducto(\''+field[x].producto+'\')" class="button-big button-green" value="Agregar a la lista" />&nbsp;<input type="button" onclick="consultarLocales(\''+field[x].tipoproducto+'\')" class="button-big button-green" value="Consultar locales" /></h4></div>'+
                                                         '</div></div>';
                                                         cont++;
                                      }
@@ -327,7 +327,7 @@ function cargarImagenes()
                                                                 '<h4><strong>Unidad:</strong>'+field[x].unidad+'</h4>'+
                                                                 '<h4><strong>Precio extra:</strong>'+field[x].preciocalidadextra+'</h4>'+
                                                                 '<h4><strong>Precio calidad primera:</strong>'+field[x].preciocalidadprimera+'</h4>'+
-                                                            '<br /><h4><input type="button" onclick="agregarProducto(\''+field[x].producto+'\')" class="button-big button-green" value="Agregar a la lista" /></h4></div>'+
+                                                            '<br /><h4><input type="button" onclick="agregarProducto(\''+field[x].producto+'\')" class="button-big button-green" value="Agregar a la lista" />&nbsp;<input type="button" onclick="consultarLocales(\''+field[x].tipoproducto+'\')" class="button-big button-green" value="Consultar locales" /></h4></div>'+
                                                         '</div></div>';
                                                         cont++;
                                      
@@ -353,6 +353,11 @@ function cargarImagenes()
                 function agregarProducto(prod){
                     localStorage.setItem("MisProductos", localStorage.getItem("MisProductos")+","+prod+",");
                     alert("El producto se ha agregado a su lista personal");
+                }
+
+                function consultarLocales(categoria){
+                    localStorage.setItem("CategoriaProducto", categoria);
+                    document.location.href="listaLocalesProducto.html";
                 }
 
                 $(document).ready(function () {
