@@ -23,8 +23,11 @@
     <script type="text/javascript" src="scripts/framework.launcher.js"></script>
 </head>
 <body>
-    <div id="loading" class="CargandoModalBackground" style="padding-top: 150px;">
-        <img src="images/mapa/bodega1.jpg" alt="bodega1" onclick="ocultar();" />
+    <div id="Bodega1" class="CargandoModalBackground" style="padding-top: 150px;">
+        <img class="responsive-image" src="images/mapa/bodega1.jpg" alt="bodega1" onclick="ocultar('Bodega1');" />
+    </div>
+    <div id="Bodega26" class="CargandoModalBackground" style="padding-top: 150px;">
+        <img class="responsive-image" src="images/mapa/bodega26.jpg" alt="bodega26" onclick="ocultar('Bodega26');" />
     </div>
     <div id="preloader">
         <div id="status">
@@ -39,72 +42,67 @@
                 <div class="sidebar-shortcuts">
                     <a href="#" class="shortcut-close"></a>
                 </div>
+                
                 <div class="sidebar-search">
                     <div class="search-box">
-                        <input type="text" class="search-field" name="search" onfocus="if(this.value == 'Looking for something?') { this.value = ''; }"
-                            value="Looking for something?">
+                        <input type="text" class="search-field" name="search" onfocus="if(this.value == 'Looking for something?') { this.value = ''; }" value="Looking for something?">
                         <a href="#" class="search-close"></a>
                     </div>
                 </div>
+                
                 <div class="sidebar-logo">
                     <img src="images/drugs/logo_odc.png" height="52" alt="img">
                 </div>
-                <div class="sidebar-breadcrumb">
-                    NAVEGACIÓN</div>
+                
+                <div class="sidebar-breadcrumb">NAVEGACIÓN</div>
                 <div class="navigation-item">
                     <a href="index.html" class="nav-item home-icon">Inicio<em class="unselected-item"></em></a>
-                </div>
-                <div class="sidebar-decoration">
-                </div>
+                </div>    
+                <div class="sidebar-decoration"></div>
                 <div class="navigation-item">
-                    <a href="listaDrogas.html" class="nav-item home-drugs">Listado de Locales<em class="selected-item"></em></a>
+                    <a href="listaLocales.html" class="nav-item home-sites">Listado de Locales<em class="selected-item"></em></a>
                 </div>
-                <div class="sidebar-decoration">
-                </div>
+                <div class="sidebar-decoration"></div>
                 <div class="navigation-item">
-                    <a href="#" class="nav-item home-bandaid submenu-deploy">Acompañamiento<em class="dropdown-item"></em></a>
-                    <div class="nav-submenu">
-                        <a href="diagnostico.html" style="color: white !important;">Diagnóstico <em class="unselected-item">
-                        </em></a><a href="persona-riesgo.html" style="color: white !important;">Estoy en Riesgo
-                            <em class="unselected-item"></em></a>
-                    </div>
+                    <a href="lista_productos_todos.html" class="nav-item home-locales">Listado de Productos<em class="unselected-item"></em></a>
                 </div>
-                <div class="sidebar-decoration">
-                </div>
+                <div class="sidebar-decoration"></div>
                 <div class="navigation-item">
-                    <a href="#" class="nav-item home-games submenu-deploy">Aprenda Jugando<em class="dropdown-item"></em></a>
-                    <div class="nav-submenu">
-                        <a href="juego_escalera_1.html" style="color: white !important;">Escalera<em class="unselected-item"></em></a>
-                        <a href="ahorcado.html" style="color: white !important;">Ahorcado<em class="unselected-item"></em></a>
-                    </div>
+                    <a href="lista_mis_productos.html" class="nav-item home-compras">Mi Lista de Compras<em class="unselected-item"></em></a>
+                </div>   
+                <div class="sidebar-decoration"></div> 
+                 <div class="navigation-item">
+                    <a href="lista_clientes.html" class="nav-item home-vendedor">Soy Comerciante<em class="unselected-item"></em></a>
                 </div>
-                <div class="sidebar-decoration">
-                </div>
+                <div class="sidebar-decoration"></div>         
                 <div class="navigation-item">
                     <a href="faqs.html" class="nav-item home-faqs">Preguntas Frecuentes<em class="unselected-item"></em></a>
                 </div>
-                <div class="sidebar-breadcrumb">
-                    INFORMACIÓN</div>
+                <div class="sidebar-decoration"></div>
+                <div class="navigation-item">
+                    <a href="lista_noticias.html" class="nav-item home-noticias">Noticias<em class="unselected-item"></em></a>
+                </div>   
+                <div class="sidebar-breadcrumb">INFORMACIÓN</div>
+                
                 <div class="navigation-item">
                     <a href="acerca.html" class="nav-item home-info-about">Acerca de<em class="unselected-item"></em></a>
-                </div>
-                <div class="sidebar-breadcrumb">
-                    Actualizaciones</div>
-                <div class="sidebar-decoration">
-                </div>
-                <div class="page-update">
-                    <span class="update-icon"></span><a href="#" class="update-button notification-update">
-                        <strong>Notificación</strong> <em>Se ha agregado krokodil</em> </a>
-                    <div class="page-update-text">
-                        Una nueva droga ha sido agregada al catálogo de datos
+                </div>    
+     
+                <div class="sidebar-breadcrumb">Actualizaciones</div>  
+                
+                <div class="sidebar-decoration"></div>  
+
+                <div class="container no-bottom">
+                    <div class="static-notification-yellow">
+                        <p class="center-text uppercase">Se ha agregado nueva información acerca de nuevos productos!</p>
                     </div>
                 </div>
-                <div class="sidebar-decoration">
+                
+                <div class="sidebar-decoration"></div>
+                
+                <div class="sidebar-breadcrumb">Corabastos 2014.
                 </div>
-                <div class="sidebar-breadcrumb">
-                    ODC 2014.
-                </div>
-            </div>
+            </div>         
         </div>
         <div id="content" class="page-content">
             <div class="page-header">
@@ -138,7 +136,9 @@
                     <div class="center-text">
                         <img class="responsive-image" src="images/mapa/corabastos.jpg" alt="img">
                         <img class="responsive-image" src="images/drugs/google.png" style="max-width: 50px;
-                            position: absolute; top: 60%; left: 33%;" onclick="mostrar();" />
+                            position: absolute; top: 60%; left: 33%;" onclick="mostrar('Bodega1');" />
+                        <img class="responsive-image" src="images/drugs/google.png" style="max-width: 50px;
+                            position: absolute; top: 29%; left: 24%;" onclick="mostrar('Bodega26');" />
                     </div>
                 </div>
                 <div class="decoration">
@@ -156,12 +156,12 @@
         </div>
     </div>
     <script type="text/javascript">
-        function mostrar() {
-            $('#loading').fadeIn("slow");
+        function mostrar(control) {
+            $('#' + control).fadeIn("slow");
         }
 
-        function ocultar() {
-            $('#loading').fadeOut("slow");
+        function ocultar(control) {
+            $('#' + control).fadeOut("slow");
         }
         
     </script>
@@ -198,9 +198,6 @@
             left: 0px;
             text-align: center;
             vertical-align: middle;
-            padding-bottom: 51% !important;
-            padding-left: 47%;
-            padding-right: 51%;
             width: 100%;
             height: 100%;
             display: none;
