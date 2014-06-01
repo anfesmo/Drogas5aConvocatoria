@@ -233,6 +233,9 @@
 
         function cargar_listaDrogasFiltrado(tipoGrano) {
             
+            var bodega = "";
+            var local = "";
+
             var texto = "";
             cont = 0;
             pagina = 1;
@@ -254,15 +257,19 @@
                         var drogas = "";
 
                         $.each(field, function (x, item) {
+
+                            bodega = field[x].codigolocal.substring(0, 2);
+                            local = field[x].codigolocal.substring(2, 7);    
+
                             if(field[x].comercializacion.indexOf(tipoGrano)!=-1){
                             texto += '<div class="container todas ' + pagina + '" >' +
                                                     '<div class="toggle-2">';
                             if (num_aleatorio < 2) {
-                                texto += '<a href="#" class="deploy-toggle-2">' + field[x].codigolocal + ' - ' + field[x].comercializacion + '</a><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png">';
+                                texto += '<a href="#" class="deploy-toggle-2">' + "Bodega: " + bodega + " - Local: "+ local + ' - ' + field[x].comercializacion + '</a><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png">';
                             } else if (num_aleatorio < 4) {
-                                texto += '<a href="#" class="deploy-toggle-2">' + field[x].codigolocal + ' - ' + field[x].comercializacion + '</a><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_vacia.png">';
+                                texto += '<a href="#" class="deploy-toggle-2">' + "Bodega: " + bodega + " - Local: "+ local + ' - ' + field[x].comercializacion + '</a><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_vacia.png">';
                             } else {
-                                texto += '<a href="#" class="deploy-toggle-2">' + field[x].codigolocal + ' - ' + field[x].comercializacion + '</a><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_vacia.png"><img class="star" src="images/estrella_vacia.png">';
+                                texto += '<a href="#" class="deploy-toggle-2">' + "Bodega: " + bodega + " - Local: "+ local + ' - ' + field[x].comercializacion + '</a><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_llena.png"><img class="star" src="images/estrella_vacia.png"><img class="star" src="images/estrella_vacia.png">';
                             }
 
                             num_aleatorio++;
